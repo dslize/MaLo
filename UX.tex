@@ -1,0 +1,116 @@
+\documentclass[11pt, a4paper]{article}
+
+\usepackage{graphicx} 
+\usepackage[utf8]{inputenc}
+\usepackage{fancyhdr}
+\usepackage{changepage}
+\usepackage[onehalfspacing]{setspace}
+\usepackage{ragged2e}
+\usepackage{ amssymb, amsmath, amsthm, dsfont }
+\usepackage[width = 18cm, top = 2.5cm, bottom = 3cm]{geometry}
+\usepackage{extarrows}
+% ---------
+
+\newcommand{\myTitleString} {}
+\newcommand{\myAuthorString} {}
+\newcommand{\mySubTitleString} {}
+\newcommand{\myDateString} {}
+
+\newcommand{\myTitle}[1] {\renewcommand {\myTitleString}{#1}}
+\newcommand{\mySubTitle}[1] {\renewcommand {\mySubTitleString}{#1}}
+\newcommand{\myAuthor}[1] {\renewcommand{\myAuthorString}		{#1}}
+\newcommand{\myDate}[1] {\renewcommand{\myDateString}{#1}}
+
+\newcommand{\makeMyTitle}
+{
+\pagestyle{fancy}
+\fancyhead[L]
+{
+\begin{tabular}{l}
+\myTitleString
+\\ \mySubTitleString 
+\\ \myDateString
+\end{tabular}
+} 			
+\fancyhead[C]{}
+\fancyhead[R]{\myAuthorString}
+\fancyfoot[C]{\thepage}
+}
+
+\setlength{\headheight}{45pt}
+
+\newcommand{\p}{11}
+\newcommand{\pp}{6}
+\newcommand{\ppp}{6}
+\newcommand{\pppp}{} 
+
+
+\makeatletter
+\renewcommand*\env@matrix[1][*\c@MaxMatrixCols c]{%
+  \hskip -\arraycolsep
+  \let\@ifnextchar\new@ifnextchar
+  \array{#1}}
+\makeatother
+% ---------
+%\setlength{\parindent}{0pt}
+\begin{document}
+
+\myTitle{Mathematische Logik}
+\mySubTitle{Übung X}
+\myDate{24. April 2017}
+\myAuthor
+{
+\begin{tabular}{l l}
+346532, &Daniel Boschmann\\
+348776, &Anton Beliankou	\\
+356092, &Daniel Schleiz
+\end{tabular}
+}
+\makeMyTitle
+
+\begin{tabular}{|c|c|c|c|}\hline
+   1 & 2 & 3 & $\sum$\\\hline
+  	 \qquad/\p & \qquad/\pp & \qquad/\ppp & \qquad/23\\\hline
+ \end{tabular}
+\hspace*{20pt} Korrigiert am:\underline{\hspace{3cm}}
+\vspace*{30pt}
+
+
+\section*{Aufgabe 1 (Punkte:\qquad/\p)}
+\textbf{(a)}
+\begin{adjustwidth}{20pt}{20pt}
+
+
+\end{adjustwidth}
+\textbf{(b)}
+\begin{adjustwidth}{20pt}{20pt}
+
+\end{adjustwidth}
+\textbf{(c)}
+\begin{adjustwidth}{20pt}{20pt}
+
+
+
+\end{adjustwidth}
+
+
+
+
+\section*{Aufgabe 2 (Punkte:\qquad/\pp)}
+
+\begin{adjustwidth}{20pt}{20pt}
+
+\end{adjustwidth}
+
+
+
+
+
+\section*{Aufgabe 3 (Punkte:\qquad/\ppp)}
+
+\begin{adjustwidth}{20pt}{20pt}
+
+\end{adjustwidth}
+
+
+\end{document}

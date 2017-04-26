@@ -54,6 +54,8 @@
   \let\@ifnextchar\new@ifnextchar
   \array{#1}}
 \makeatother
+
+\newcommand{\interpretation}[1] {\mathfrak{#1}} 
 % ---------
 %\setlength{\parindent}{0pt}
 \begin{document}
@@ -100,25 +102,25 @@ $\varphi=\bigwedge\limits_{i=1}^5 \varphi_i$
 \end{adjustwidth}
 \textbf{(c)}
 \begin{adjustwidth}{20pt}{20pt}
-Angenommen, es existiert eine passende Interpretation $I:\{A,B,C,D,E \}\mapsto \{0,1\}$ mit $\llbracket \varphi \rrbracket^I=1$, welche $C$ auf $1$ abbildet ("Claudius kommt"). Damit die Teilformel $\varphi_5$ wahr ist, muss gelten:\\
+Angenommen, es existiert eine passende Interpretation $\interpretation{I}:\{A,B,C,D,E \}\mapsto \{0,1\}$ mit $\llbracket \varphi \rrbracket^{\interpretation{I}}=1$, welche $C$ auf $1$ abbildet ("Claudius kommt"). Damit die Teilformel $\varphi_5$ wahr ist, muss gelten:\\
 
 $1\rightarrow (D\wedge B) \equiv \neg 1\vee (D\wedge B) \equiv 0 \vee (D\wedge B) \equiv (D\wedge B)$\\
 
-Das heißt, $I$ muss $D\mapsto 1$ und $B\mapsto 1$ abbilden. Nun folgt, dass auch $E\mapsto 1$ gelten muss für $I$, denn aus $\varphi_4$ ergibt sich:\\
+Das heißt, $\interpretation{I}$ muss $D\mapsto 1$ und $B\mapsto 1$ abbilden. Nun folgt, dass auch $E\mapsto 1$ gelten muss für $\interpretation{I}$, denn aus $\varphi_4$ ergibt sich:\\
 
-$(E\wedge 1)\vee(\neg E\wedge \neg 1) \equiv E\vee(\neg E\wedge 0) \equiv E\vee 0 \equiv E$ \qquad (da $\llbracket \varphi \rrbracket^I=1$)\\
+$(E\wedge 1)\vee(\neg E\wedge \neg 1) \equiv E\vee(\neg E\wedge 0) \equiv E\vee 0 \equiv E$ \qquad (da $\llbracket \varphi \rrbracket^{\interpretation{I}}=1$)\\
 
 Ferner gilt für $\varphi_3$ beim Einsetzen:\\
 
 $(A\wedge\neg 1)\vee(\neg A \wedge 1) \equiv (A\wedge 0)\vee \neg A  \equiv 0\vee \neg A  \equiv \neg A$\\
 
-Damit $\varphi_3$ wahr ist, muss $I$ also $A$ auf $0$ abbilden. Setze nun in $\varphi_1$ ein:\\
+Damit $\varphi_3$ wahr ist, muss $\interpretation{I}$ also $A$ auf $0$ abbilden. Setze nun in $\varphi_1$ ein:\\
 
 $\neg 0 \rightarrow  \neg 1 \equiv 1 \rightarrow  0 \equiv \neg 1 \vee 0 \equiv 0 \vee 0 \equiv 0$ (Widerspruch! $\lightning$)\\
 
-Da die Teilformel $\varphi_1$ nicht erfüllt ist, war die Annahme falsch, dass ein Modell $I$ mit $C\mapsto 1$ existiert.\\
+Da die Teilformel $\varphi_1$ nicht erfüllt ist, war die Annahme falsch, dass ein Modell $\interpretation{I}$ mit $C\mapsto 1$ existiert.\\
 
-Falls also für $\varphi$ ein Modell $I$ existiert, so muss $I$ $C\mapsto 0$ abbilden.\\
+Falls also für $\varphi$ ein Modell $\interpretation{I}$ existiert, so muss $\interpretation{I}$ $C\mapsto 0$ abbilden.\\
 Setze in $\varphi_2$ ein:\\
 
 $0\vee D \equiv D$\\
@@ -139,7 +141,7 @@ $\neg 0 \rightarrow  \neg B \equiv 1 \rightarrow  \neg B \equiv \neg 1 \vee \neg
 
 Daraus folgt $B\mapsto 0$.\\
 
-Es wurden alle möglichen Belegungen von $C$ betrachtet, die restlichen Belegungen folgen aus $C\mapsto 0$ in $I$. Somit existiert genau ein Modell $I$ mit $A\mapsto 0, B \mapsto 0, C \mapsto 0, D \mapsto 1, E\mapsto 1$.\\
+Es wurden alle möglichen Belegungen von $C$ betrachtet, die restlichen Belegungen folgen aus $C\mapsto 0$ in $\interpretation{I}$. Somit existiert genau ein Modell $\interpretation{I}$, mit $A\mapsto 0, B \mapsto 0, C \mapsto 0, D \mapsto 1, E\mapsto 1$.\\
 
 Es kommen also nur Desir\'{e}e und Emil zum Essen.
 
@@ -160,7 +162,7 @@ Die Formel ist eine Tautologie (stets wahr) und damit insbesondere erfüllbar.\\
 (ii)\\
  $(1 \rightarrow X \vee Y) \wedge (0 \rightarrow (\neg X \wedge \neg Y))\\ \equiv (1 \rightarrow X \vee Y) \wedge (\neg 0 \vee (\neg X \wedge \neg Y))\\ \equiv (1 \rightarrow X \vee Y) \wedge (1 \vee (\neg X \wedge \neg Y))\\ \equiv (1 \rightarrow X \vee Y) \wedge 1 \equiv (1 \rightarrow X \vee Y)\\ \equiv \neg 1 \vee (X \vee Y) \equiv 0 \vee (X \vee Y) \equiv X \vee Y$\\
 
-Die Formel ist erfüllbar, da z. B. mit Interpretation $I$ mit $X\mapsto 1$, $Y\mapsto 0$ ein Modell ist, aber keine Tautologie, denn die Interpretation $J$ mit $X\mapsto 0$, $Y\mapsto 0$ führt zum Wahrheitswert $0$ der Formel.\\
+Die Formel ist erfüllbar, da z. B. mit Interpretation $\interpretation{I}$ mit $X\mapsto 1$, $Y\mapsto 0$ ein Modell ist, aber keine Tautologie, denn die Interpretation $\interpretation{J}$ mit $X\mapsto 0$, $Y\mapsto 0$ führt zum Wahrheitswert $0$ der Formel.\\
 (iii)\\
  $\neg (Y \rightarrow X)\wedge(\neg X \rightarrow (X \wedge Y))\\ \equiv \neg (\neg Y \vee X)\wedge(\neg X \rightarrow (X \wedge Y))\\ \equiv ( Y \wedge \neg X)\wedge(\neg X \rightarrow (X \wedge Y))\\ \equiv ( Y \wedge \neg X)\wedge( X \vee (X \wedge Y))\\ \equiv ( Y \wedge \neg X)\wedge X \equiv Y \wedge \neg X \wedge X$\\
 
@@ -198,7 +200,7 @@ Da somit in $\bigwedge\limits_{\varphi \in \Phi} \varphi$ und $\bigvee\limits_{\
 In dem Fall von 4 Studierenden ($\{1,...,4\}$) existieren die Aussagenvariablen $X_{1,2},X_{1,3},X_{1,4},X_{2,3},X_{2,4},X_{3,4}$\\
 Sei $\varphi=X_{1,2} \vee X_{1,3} \vee X_{1,4} \vee X_{2,3} \vee X_{2,4} \vee X_{3,4}$\\
 Der Sachverhalt in der Aussagenlogik:\\
-Es existiert eine Interpretation $I_p$, sodass gilt: $\llbracket \varphi \rrbracket^{I_p}=1$.\\
+Es existiert eine Interpretation $\interpretation{I}_P$, sodass gilt: $\llbracket \varphi \rrbracket^{\interpretation{I}_P}=1$.\\
 (ii)\\
 
  $\bigwedge\limits_{i=1}^n \left(\bigvee\limits_{j=i+1}^n \neg X_{i,j} \vee \bigvee\limits_{k=1}^{i-1} \neg X_{k,i} \right)$\\
@@ -219,7 +221,7 @@ Zeige zunächst, dass $\psi(X,Y) \rightarrow \psi(\psi(1,Y),Y)$ eine Tautologie 
 Dann gilt:\\
  $\psi(X,Y) \rightarrow \psi(\psi(1,Y),Y)\\ \equiv \psi(X,Y) \rightarrow \psi(1,Y)\\ \equiv \psi(X,Y) \rightarrow 1 \equiv \neg \psi(X,Y) \vee 1 \equiv 1$ \qquad ,also stets wahr.\\
  
- Betrachte nun die Interpretationen für $\llbracket \psi(1,Y) \rrbracket=0$ (Belegung für $Y$ unerheblich). Angenommen, für eine solche Interpretation gilt $\llbracket \psi(0,Y) \rrbracket=1$. Dann gilt:\\
+ Betrachte nun die Interpretationen mit $\llbracket \psi(1,Y) \rrbracket=0$ (Belegung für $Y$ unerheblich). Angenommen, für eine solche Interpretation gilt $\llbracket \psi(0,Y) \rrbracket=1$. Dann gilt:\\
  $\varphi(X,Y) \rightarrow \varphi(\varphi(1,Y),Y)\\ \equiv \psi(X,Y) \rightarrow \psi(0,Y)\\ \equiv \psi(X,Y) \rightarrow 1 \equiv \neg \psi(X,Y) \vee 1 \equiv 1$ \qquad ,also stets wahr.\\
  
  Ansonsten, existiert noch der Fall, dass $\llbracket \psi(0,Y) \rrbracket=0$. Dann gilt:\\

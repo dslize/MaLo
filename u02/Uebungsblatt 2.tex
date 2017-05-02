@@ -1,0 +1,263 @@
+\documentclass[11pt, a4paper]{article}
+
+\usepackage{graphicx} 
+\usepackage[utf8]{inputenc}
+\usepackage{fancyhdr}
+\usepackage{changepage}
+\usepackage[onehalfspacing]{setspace}
+\usepackage{ragged2e}
+\usepackage{ amssymb, amsmath, amsthm, dsfont }
+\usepackage[width = 18cm, top = 2.5cm, bottom = 3cm]{geometry}
+\usepackage{extarrows}
+\usepackage{stmaryrd}
+% ---------
+
+\newcommand{\myTitleString} {}
+\newcommand{\myAuthorString} {}
+\newcommand{\mySubTitleString} {}
+\newcommand{\myDateString} {}
+
+\newcommand{\myTitle}[1] {\renewcommand {\myTitleString}{#1}}
+\newcommand{\mySubTitle}[1] {\renewcommand {\mySubTitleString}{#1}}
+\newcommand{\myAuthor}[1] {\renewcommand{\myAuthorString}		{#1}}
+\newcommand{\myDate}[1] {\renewcommand{\myDateString}{#1}}
+
+\newcommand{\defgl}{\mathrel{=\!\!\mathop:}}
+\newcommand{\defgr}{\mathrel{\mathop:\!\!=}}
+\newcommand{\makeMyTitle}
+
+{
+\pagestyle{fancy}
+\fancyhead[L]
+{
+\begin{tabular}{l}
+\myTitleString
+\\ \mySubTitleString 
+\\ \myDateString
+\end{tabular}
+} 			
+\fancyhead[C]{}
+\fancyhead[R]{\myAuthorString}
+\fancyfoot[C]{\thepage}
+}
+
+\setlength{\headheight}{45pt}
+
+\newcommand{\p}{10}
+\newcommand{\pp}{10}
+\newcommand{\ppp}{20}
+\newcommand{\pppp}{} 
+
+
+\makeatletter
+\renewcommand*\env@matrix[1][*\c@MaxMatrixCols c]{%
+  \hskip -\arraycolsep
+  \let\@ifnextchar\new@ifnextchar
+  \array{#1}}
+\makeatother
+% ---------
+%\setlength{\parindent}{0pt}
+\begin{document}
+
+\myTitle{Mathematische Logik}
+\mySubTitle{Übung 2}
+\myDate{1. Mai 2017}
+\myAuthor
+{
+\begin{tabular}{l l}
+346532, &Daniel Boschmann\\
+348776, &Anton Beliankou	\\
+356092, &Daniel Schleiz
+\end{tabular}
+}
+\makeMyTitle
+
+\begin{tabular}{|c|c|c|}\hline
+    2 & 3 & $\sum$\\\hline
+  	 \qquad/\pp & \qquad/\ppp & \qquad/30\\\hline
+ \end{tabular}
+\hspace*{20pt} {\huge Gruppe \textbf{G}}
+\vspace*{30pt}
+
+
+\section*{Aufgabe 2 (Punkte:\qquad/\p)}
+\textbf{(a)}
+\begin{adjustwidth}{20pt}{20pt}
+(i)\\
+TODO: Zu zeigen: $\{\neg , \leftrightarrow \}$ ist nicht funktional vollständig.\\
+$X \leftrightarrow Y \equiv (X \wedge Y) \vee (\neg X \wedge \neg Y ) $\\ 
+Zunächst wird der Hinweis überprüft:\\
+$\neg X \leftrightarrow Y \equiv ( \neg X \wedge Y) \vee ( \neg \neg X \wedge Y) \equiv ( 
+\neg X \wedge Y) \vee ( \neg \neg X \wedge Y) \equiv \neg ((X \wedge Y) \vee (\neg X
+\wedge \neg Y )) \equiv \neg ( X \leftrightarrow Y ) $\\
+Daraus folgt direkt das $\leftrightarrow$ X-alternierend ist. Für $\neg$ folgt diese
+Aussage direkt aus der Definition von $\neg$.\\
+Mit struktureller Induktion wird nun gezeigt das Formeln bestehend aus ${ \neg ,
+\leftrightarrow}$ entweder X-alternierend oder X-konstant sind.\\
+Seien $\varphi$ und $\vartheta$ Formeln bestehend aus ${\neg ,\leftrightarrow}$, wir
+nehmen nach Induktionsanfang an, dass die Formeln $\varphi$ und $\vartheta$ entweder X-
+konstant oder X-alternierend sind.\\
+\textbf{1. Fall:} $\varphi$ und $\vartheta$ sind X-alternierend.\\
+ $ \varphi (\neg X , \bar{Y} ) \leftrightarrow \vartheta (\neg X , \bar{Y} )  \equiv  \neg \varphi( X , \bar{Y} ) \leftrightarrow \neg \vartheta( X , \bar{Y} ) \equiv  \varphi ( X , \bar{Y} ) \leftrightarrow \vartheta ( X , \bar{Y} ) $\\
+Somit X-konstant.\\
+\textbf{2. Fall:} $\varphi$ und $\vartheta$ sind X-konstant.\\
+ $ \varphi (\neg X , \bar{Y} ) \leftrightarrow \vartheta (\neg X , \bar{Y} )  \equiv   \varphi( X , \bar{Y} ) \leftrightarrow  \vartheta( X , \bar{Y} ) $\\
+Somit X-konstant.\\
+ \textbf{3. Fall:} $\varphi$ X-alternierend und $\vartheta$ X-konstant.\\
+ $ \varphi (\neg X , \bar{Y} ) \leftrightarrow \vartheta (\neg X , \bar{Y} )  \equiv   \neg \varphi( X , \bar{Y} ) \leftrightarrow \vartheta( X , \bar{Y} ) \equiv   \neg (\varphi ( X , \bar{Y} ) \leftrightarrow \vartheta ( X , \bar{Y} )) $\\
+Somit X-alternierend.\\
+ Wäre ${ \neg , \leftrightarrow} $ funktional vollständig, wäre es auch möglich ${\wedge , \vee}$ darzustellen, da diese aber weder X-konstant, noch X-alternierend sind, ergibt sich dadurch ein Widerspruch und somit ist ${ \neg , \leftrightarrow} $ nicht funktional vollständig.\\
+(ii)\\
+Zu zeigen: $\{\downarrow\}$ ist funktional vollständig.\\
+
+Aus der Vorlesung (Def. 1.10) ist bekannt,  $\{ \vee , \neg \}$ ist funktional vollständig.\\
+$\neg A \equiv \neg A \wedge \neg A \equiv A \downarrow A$\\
+$A \vee B \equiv \neg \neg (A \vee B) \equiv \neg (\neg A \wedge \neg B) \equiv \neg (A \downarrow B) \equiv (A \downarrow B)\downarrow(A \downarrow B)$\\
+Somit folgt die zu zeigende Aussage.
+\end{adjustwidth}
+\textbf{(b)}
+\begin{adjustwidth}{20pt}{20pt}
+Zu zeigen: $\{f, 0, 1\}$ ist funktional vollständig.\\
+
+Aus der Vorlesung (Def. 1.10) ist bekannt,  $\{ \wedge , \neg \}$ ist funktional vollständig.\\
+$\neg A \equiv f(A,1,0)$\\
+$A \wedge B \equiv f(A,0,B)$\\
+Somit folgt die zu zeigende Aussage.
+\end{adjustwidth}
+
+
+
+
+\section*{Aufgabe 3 (Punkte:\qquad/\ppp)}
+
+\textbf{(a)}
+\begin{adjustwidth}{20pt}{20pt}
+Sei $\varphi \defgr (A \wedge C \rightarrow B)\wedge(F \wedge D \rightarrow H)\wedge(D \wedge C \wedge E \rightarrow F)\wedge(B \wedge C \rightarrow E)\wedge(1 \rightarrow A)\wedge(H \rightarrow 0)\wedge(1 \rightarrow C)\wedge(A \rightarrow D)$\\
+
+Schritt 0: Markiere Variablen $A$, für welche Klauseln $1 \rightarrow A$ existieren:\\
+\begin{center}
+	$M = \{A,C\}$\\
+\end{center}
+\vspace*{15 pt}
+
+Schritt 1: Markiere Variablen $B$ und $D$ wegen jeweils $A \wedge C \rightarrow B$ und  $A \rightarrow D$ mit $A,C \in M$:\\
+\begin{center}
+	$M = \{A, B, C, D\}$\\
+\end{center}
+\vspace*{15 pt}
+
+Schritt 2: Markiere Variable $E$ wegen  $B \wedge C \rightarrow E$ mit $B,C \in M$:\\
+\begin{center}
+	$M = \{A, B, C, D, E\}$\\
+\end{center}
+\vspace*{15 pt}
+Schritt 3: Markiere Variable $F$ wegen  $D \wedge C \wedge E \rightarrow F$ mit $
+D,C,E \in M$:\\
+\begin{center}
+	$M = \{A, B, C, D, E, F\}$\\
+\end{center}
+\vspace*{15 pt}
+Schritt 4: Markiere Variable $H$ wegen  $F \wedge D \rightarrow H$ mit $
+F,D \in M$:\\
+\begin{center}
+	$M = \{A, B, C, D, E, F, H\}$\\
+\end{center}
+\vspace*{15 pt}
+
+Wegen Klausel $H \rightarrow 0$ mit $H \in M$ ist die Ausgabe "unerfüllbar".
+\end{adjustwidth}
+\textbf{(b)}
+\begin{adjustwidth}{20pt}{20pt}
+(i)\\
+\textbf{Schnitt}\\
+Die Horn-Formel haben folgenden Gestalt: $\varphi = \bigwedge \limits_{i=1}^n \psi_i$, wobei $\psi_i= (\bigvee \limits_{j=1}^k\neg X_{ij}) \vee X_{i0}$ oder $\psi_i= (\bigvee \limits_{j=1}^k\neg X_{ij})$\\
+
+Offenbar gilt für jede Interpretation $\mathfrak{I}$:\\
+
+$\mathfrak{I} \models \varphi \Leftrightarrow \mathfrak{I} \models \psi_i$ für $\forall i \in [1,n]$\\
+
+Für zwei Interpretationen $\mathfrak{I_1} \models \psi_i$ und $\mathfrak{I_2} \models \psi_i$ muss  gelten $(\mathfrak{I_1} \cap \mathfrak{I_2}) \models \psi_i$, falls die Abgeschlossenheit unter der Schnittbildung gilt.\\
+
+Dazu kann es zwei Fälle für jedes $i$ geben:\\
+\textbf{Fall 1)}Für alle $j$ gilt: $\mathfrak{I_1}(X_{ij})=1 \wedge \mathfrak{I_2}(X_{ij})=1$  \hspace*{45 pt} $\Rightarrow (\mathfrak{I_1} \cap \mathfrak{I_2})(X_{ij})=1$\\
+\textbf{Fall 2)}Es existiert ein $j$ mit $\mathfrak{I_1}(X_{ij})=0 \vee \mathfrak{I_2}(X_{ij})=0$ \hspace*{15 pt} $\Rightarrow (\mathfrak{I_1} \cap \mathfrak{I_2})(X_{ij})=0$\\
+
+Für beide Fälle gilt nach der Definition $(\mathfrak{I_1} \cap \mathfrak{I_2}) = \min(\mathfrak{I_1}, \mathfrak{I_2})$: falls $\mathfrak{I_1} \models \psi_i$ und $\mathfrak{I_2} \models \psi_i$, dann $(\mathfrak{I_1} \cap \mathfrak{I_2}) \models \psi_i$.\\
+
+Damit sind Modelle von Horn-Formeln unter Schnittbildung abgeschlossen.\\
+(ii)\\
+\textbf{Vereinigung}\\
+Sei $\varphi(A,B) = \neg A \vee \neg B  \equiv A \wedge B \rightarrow 0$ eine Horn-Formel und $\mathfrak{I_1}$ und $\mathfrak{I_2}$ Interpretationen mit\\
+$\mathfrak{I_1}(A)=0$, $\mathfrak{I_1}(B)=1$\\
+$\mathfrak{I_2}(A)=1$, $\mathfrak{I_2}(B)=0$\\
+$\Rightarrow \mathfrak{I_1} \models \varphi, \mathfrak{I_2} \models \varphi$\\
+
+Ferner gilt:\\ 
+$(\mathfrak{I_1} \cup \mathfrak{I_2})(A)= \max(\mathfrak{I_1}(A),\mathfrak{I_2}(A)) = \max(0,1) = 1$\\
+$(\mathfrak{I_1} \cup \mathfrak{I_2})(B)= \max(\mathfrak{I_1}(B),\mathfrak{I_2}(B)) = \max(1,0) = 1$\\
+$\Rightarrow (\mathfrak{I_1} \cup \mathfrak{I_2}) \not\models \varphi$ \qquad Widerspruch!\\
+
+Das $(\mathfrak{I_1} \cup \mathfrak{I_2})$ ist also kein Modell von $\varphi$. Damit sind Modelle von Horn-Formeln unter Vereinigung nicht abgeschlossen.\\ 
+(iii)\\
+\textbf{Komplement}\\
+Sei $\varphi(A)=A$ eine Horn-Formel sowie eine Interpretation $\mathfrak{I}(A)=1$.\\
+ Es gilt offensichtlich $\mathfrak{I} \models \varphi$. Betrachte nun das Komplement von $\mathfrak{I}$:\\
+ $\neg \mathfrak{I} (A) \equiv 1 - \mathfrak{I}(A) = 1- 1=0 \Rightarrow \neg \mathfrak{I} \not\models \varphi$ \qquad Widerspruch!\\
+ 
+ Das $\neg \mathfrak{I}$ ist also kein Modell von $\varphi$. Damit sind Modelle von Horn-Formeln unter Komplement nicht abgeschlossen. 
+\end{adjustwidth}
+\textbf{(c)}
+\begin{adjustwidth}{20pt}{20pt}
+Die Umkehrung gilt nicht.\\
+
+Betrachte $\varphi \defgr \neg A \vee B \vee C$.\\
+ Das eindeutige kleinste Modell von $\varphi$ ist $\mathfrak{I_1}$ mit $\mathfrak{I_1}(X)=0,\mathfrak{I_1}(Y)=0,\mathfrak{I_1}(Z)=0$\\
+ 
+ Sei $\mathfrak{I_2}$ mit $\mathfrak{I_2}(A)=1,\mathfrak{I_2}(B)=0,\mathfrak{I_2}(C)=1$\\
+ sowie $\mathfrak{I_3}$ mit $\mathfrak{I_3}(A)=1,\mathfrak{I_3}(B)=1,\mathfrak{I_3}(C)=0$\\ zwei weitere Interpretationen.\\
+ 
+ $(\mathfrak{I_2} \cap \mathfrak{I_3})(A)=1,(\mathfrak{I_2} \cap \mathfrak{I_3})(B)=0,\mathfrak{I_3})(C)=0$\\
+ 
+  Es gilt $\mathfrak{I_2}  \models \varphi,\mathfrak{I_3} \models \varphi$, aber dennoch $(\mathfrak{I_2} \cap \mathfrak{I_3}) \not \models \varphi$. Somit ist $\varphi$ nicht äquivalent zu einer Horn-Formel nach Teilaufgabe b). 
+
+\end{adjustwidth}
+\textbf{(d)}
+\begin{adjustwidth}{20pt}{20pt}
+(i)\\
+$(Z \rightarrow (X \vee \neg Y))\wedge (X \rightarrow (\neg Y \vee \neg Z))\wedge\neg(X \rightarrow (\neg Y \wedge U))$\\
+$\equiv (\neg Z \vee (X \vee \neg Y))\wedge (\neg X \vee (\neg Y \vee \neg Z))\wedge\neg(\neg X \vee (\neg Y \wedge U))$\\
+$\equiv (\neg Z \vee X \vee \neg Y)\wedge (\neg X \vee \neg Y \vee \neg Z)\wedge  X \wedge  (Y \vee \neg U)$\\
+
+Die Formel ist äquivalent zu einer Horn-Formel.\\
+(ii)\\
+$(((\neg U \wedge (Y \vee \neg X)) \rightarrow Z) \vee (X \wedge (\neg U \rightarrow U))$\\
+$\equiv (\neg((\neg U \wedge (Y \vee \neg X)) \vee Z) \vee (X \wedge U)$\\
+$\equiv (U \vee (\neg Y \wedge X) \vee Z) \vee (X \wedge U)$\\
+
+Wähle nun $\mathfrak{I_1}$ mit $\mathfrak{I_1}(U)=1$, $\mathfrak{I_1}(X)=\mathfrak{I_1}(Y)=\mathfrak{I_1}(Z)=0$\\
+sowie $\mathfrak{I_2}$ mit $\mathfrak{I_2}(Z)=1$, $\mathfrak{I_2}(X)=\mathfrak{I_2}(Y)=\mathfrak{I_1}(U)=0$\\
+Beide Interpretationen sind Modelle für die gegebene Formel.\\
+Nach Teilaufgabe (b) sind die Modelle der Horn-Formeln unter Schnittbildung abgeschlossen.\\
+$(\mathfrak{I_1} \cap \mathfrak{I_2})(U)=(\mathfrak{I_1} \cap \mathfrak{I_2})(X)=(\mathfrak{I_1} \cap \mathfrak{I_2})(Y)=(\mathfrak{I_1} \cap \mathfrak{I_2})(Z)=0$\\
+
+Setze nun die neue Belegung in die Formel ein:\\
+
+$(0 \vee (\neg 0 \wedge 0) \vee 0) \vee (0 \wedge 0) \equiv (1 \wedge 0) \vee 0 \equiv 0$ \qquad Widerspruch!\\
+
+Das $(\mathfrak{I_1} \cap \mathfrak{I_2})$ ist also kein Modell von der gegebener Formel. Dies widerspricht der Abgeschlossenheit unter Schnittbildung.\\
+Die Formel ist somit nicht äquivalent zu einer Horn-Formel.\\
+(iii)\\
+$X \wedge \neg ( \neg Y \rightarrow (\neg Y \wedge X)) \wedge ((X \wedge Y)\rightarrow(Y \vee \neg Z))$\\
+$\equiv X \wedge \neg ( Y \vee (\neg Y \wedge X)) \wedge (\neg (X \wedge Y)\vee(Y \vee \neg Z))$\\
+$\equiv X \wedge \neg ( Y \vee X) \wedge (\neg (X \wedge Y)\vee(Y \vee \neg Z))$\\
+$\equiv X \wedge \neg Y \wedge \neg X \wedge (\neg X \vee \neg Y)\vee(Y \vee \neg Z)$\\
+$\equiv X \wedge \neg Y \wedge \neg X \wedge (\neg X \vee \neg Y \vee Y \vee \neg Z)$\\
+$\equiv X \wedge \neg Y \wedge \neg X \wedge 1$\\
+$\equiv X \wedge \neg Y \wedge \neg X$\\
+
+Die Formel ist äquivalent zu einer Horn-Formel.
+
+
+\end{adjustwidth}
+
+\end{document}

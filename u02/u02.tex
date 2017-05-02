@@ -169,55 +169,61 @@ Wegen Klausel $H \rightarrow 0$ mit $H \in M$ ist die Ausgabe "unerfüllbar".
 \begin{adjustwidth}{20pt}{20pt}
 (i)\\
 \textbf{Schnitt}\\
-Die Horn-Formel haben folgenden Gestalt: $\varphi = \bigwedge \limits_{i=1}^n \psi_i$, wobei $\psi_i= (\bigvee \limits_{j=1}^k\neg X_{ij}) \vee X_{i0}$ oder $\psi_i= (\bigvee \limits_{j=1}^k\neg X_{ij})$\\
+Die Horn-Formel haben folgende Gestalt (KNF): $\varphi = \bigwedge \limits_{i=1}^n \psi_i$, wobei $\psi_i= (\bigvee \limits_{j=1}^k\neg X_{ij}) \vee X_{i0}$ oder $\psi_i= (\bigvee \limits_{j=1}^k\neg X_{ij})$.\\
 
-Offenbar gilt für jede Interpretation $\mathfrak{I}$:\\
+\noindent Da die Teilformeln $\psi_i$ in Konjunktion stehen, gilt für jede Interpretation $\mathfrak{I}$:\\
 
 $\mathfrak{I} \models \varphi \Leftrightarrow \mathfrak{I} \models \psi_i$ für $\forall i \in [1,n]$\\
 
-Für zwei Interpretationen $\mathfrak{I_1} \models \psi_i$ und $\mathfrak{I_2} \models \psi_i$ muss  gelten $(\mathfrak{I_1} \cap \mathfrak{I_2}) \models \psi_i$, falls die Abgeschlossenheit unter der Schnittbildung gilt.\\
+\noindent Für zwei Interpretationen $\mathfrak{I_1} \models \psi_i$ und $\mathfrak{I_2} \models \psi_i$ muss  gelten $(\mathfrak{I_1} \cap \mathfrak{I_2}) \models \psi_i$, falls die Abgeschlossenheit unter der Schnittbildung gilt.\\
 
-Dazu kann es zwei Fälle für jedes $i$ geben:\\
-\textbf{Fall 1)}Für alle $j$ gilt: $\mathfrak{I_1}(X_{ij})=1 \wedge \mathfrak{I_2}(X_{ij})=1$  \hspace*{45 pt} $\Rightarrow (\mathfrak{I_1} \cap \mathfrak{I_2})(X_{ij})=1$\\
-\textbf{Fall 2)}Es existiert ein $j$ mit $\mathfrak{I_1}(X_{ij})=0 \vee \mathfrak{I_2}(X_{ij})=0$ \hspace*{15 pt} $\Rightarrow (\mathfrak{I_1} \cap \mathfrak{I_2})(X_{ij})=0$\\
+\noindent Sei nun $i$ beliebig aber fest und betrachte $\psi_i$. Es kann zwischen zwei Fällen unterschieden werden:\\
+\textbf{Fall 1)} Für alle $j$ gilt: $\mathfrak{I_1}(X_{ij})=1 \wedge \mathfrak{I_2}(X_{ij})=1$  \hspace*{15 pt} $\Rightarrow (\mathfrak{I_1} \cap \mathfrak{I_2})(X_{ij})=1$\\
+Es muss $\psi_i$ der Form $\psi_i= (\bigvee \limits_{j=1}^k\neg X_{ij}) \vee X_{i0}$ sein, da ansonsten entgegen der Annahme $\mathfrak{I_1} \not\models \psi_i$ und 
+$\mathfrak{I_2} \not\models \psi_i$ gelten würde. Insbesondere gilt für $j=0$, dass $(\mathfrak{I_1} \cap \mathfrak{I_2})(X_{i0})=1$, also folgt $(\mathfrak{I_1} \cap \mathfrak{I_2}) \models \psi_i$.  \\ \ \\
+\textbf{Fall 2)} Es existiert ein $j$ mit $\mathfrak{I_1}(X_{ij})=0 \vee \mathfrak{I_2}(X_{ij})=0$ \hspace*{15 pt} $\Rightarrow (\mathfrak{I_1} \cap \mathfrak{I_2})(X_{ij})=0$\\
+Es ist entweder $\psi_i$ der Form $\psi_i= (\bigvee \limits_{j=1}^k\neg X_{ij})$, d.h. es existiert kein positives Literal, oder es enthält das positive Literal $X_{i0}$, dann ist aber
+$j\neq 0$ oder es existiert ein $k\neq 0$ mit $\mathfrak{I_1}(X_{ij})=0 \vee \mathfrak{I_2}(X_{ij})=0$, da sonst $\mathfrak{I_1} \not\models \psi_i$ und 
+$\mathfrak{I_2} \not\models \psi_i$ gelten würde. Da also $X_{ij}$ negiert auftritt, folgt, dass $(\mathfrak{I_1} \cap \mathfrak{I_2}) \models \psi_i$.\\
 
-Für beide Fälle gilt nach der Definition $(\mathfrak{I_1} \cap \mathfrak{I_2}) = \min(\mathfrak{I_1}, \mathfrak{I_2})$: falls $\mathfrak{I_1} \models \psi_i$ und $\mathfrak{I_2} \models \psi_i$, dann $(\mathfrak{I_1} \cap \mathfrak{I_2}) \models \psi_i$.\\
+%\noindent Für beide Fälle gilt nach der Definition $(\mathfrak{I_1} \cap \mathfrak{I_2}) = \min(\mathfrak{I_1}, \mathfrak{I_2})$: falls $\mathfrak{I_1} \models \psi_i$ und $\mathfrak{I_2} %\models \psi_i$, dann $(\mathfrak{I_1} \cap \mathfrak{I_2}) \models \psi_i$.\\
+\noindent Da $i$ beliebig gewählt war, gilt für alle $i$, dass $(\mathfrak{I_1} \cap \mathfrak{I_2}) \models \psi_i$. Daraus folgt $(\mathfrak{I_1} \cap \mathfrak{I_2}) \models \varphi$.
 
-Damit sind Modelle von Horn-Formeln unter Schnittbildung abgeschlossen.\\
-(ii)\\
+\noindent Damit sind Modelle von Horn-Formeln unter Schnittbildung abgeschlossen.\\ \ \\
+\noindent (ii)\\
 \textbf{Vereinigung}\\
 Sei $\varphi(A,B) = \neg A \vee \neg B  \equiv A \wedge B \rightarrow 0$ eine Horn-Formel und $\mathfrak{I_1}$ und $\mathfrak{I_2}$ Interpretationen mit\\
 $\mathfrak{I_1}(A)=0$, $\mathfrak{I_1}(B)=1$\\
 $\mathfrak{I_2}(A)=1$, $\mathfrak{I_2}(B)=0$\\
 $\Rightarrow \mathfrak{I_1} \models \varphi, \mathfrak{I_2} \models \varphi$\\
 
-Ferner gilt:\\ 
+\noindent Ferner gilt:\\ 
 $(\mathfrak{I_1} \cup \mathfrak{I_2})(A)= \max(\mathfrak{I_1}(A),\mathfrak{I_2}(A)) = \max(0,1) = 1$\\
 $(\mathfrak{I_1} \cup \mathfrak{I_2})(B)= \max(\mathfrak{I_1}(B),\mathfrak{I_2}(B)) = \max(1,0) = 1$\\
-$\Rightarrow (\mathfrak{I_1} \cup \mathfrak{I_2}) \not\models \varphi$ \qquad Widerspruch!\\
+$\Rightarrow (\mathfrak{I_1} \cup \mathfrak{I_2}) \not\models \varphi$\\
 
-Das $(\mathfrak{I_1} \cup \mathfrak{I_2})$ ist also kein Modell von $\varphi$. Damit sind Modelle von Horn-Formeln unter Vereinigung nicht abgeschlossen.\\ 
+\noindent Also ist $(\mathfrak{I_1} \cup \mathfrak{I_2})$ kein Modell von $\varphi$. Damit sind Modelle von Horn-Formeln unter Vereinigung nicht abgeschlossen.\\ \ \\
 (iii)\\
 \textbf{Komplement}\\
 Sei $\varphi(A)=A$ eine Horn-Formel sowie eine Interpretation $\mathfrak{I}(A)=1$.\\
  Es gilt offensichtlich $\mathfrak{I} \models \varphi$. Betrachte nun das Komplement von $\mathfrak{I}$:\\
- $\neg \mathfrak{I} (A) \equiv 1 - \mathfrak{I}(A) = 1- 1=0 \Rightarrow \neg \mathfrak{I} \not\models \varphi$ \qquad Widerspruch!\\
+ $\neg \mathfrak{I} (A) \equiv 1 - \mathfrak{I}(A) = 1- 1=0 \Rightarrow \neg \mathfrak{I} \not\models \varphi$\\
  
- Das $\neg \mathfrak{I}$ ist also kein Modell von $\varphi$. Damit sind Modelle von Horn-Formeln unter Komplement nicht abgeschlossen. 
+\noindent Also ist $\neg \mathfrak{I}$ kein Modell von $\varphi$. Damit sind Modelle von Horn-Formeln unter Komplement nicht abgeschlossen. 
 \end{adjustwidth}
 \textbf{(c)}
 \begin{adjustwidth}{20pt}{20pt}
 Die Umkehrung gilt nicht.\\
 
 Betrachte $\varphi \defgr \neg A \vee B \vee C$.\\
- Das eindeutige kleinste Modell von $\varphi$ ist $\mathfrak{I_1}$ mit $\mathfrak{I_1}(X)=0,\mathfrak{I_1}(Y)=0,\mathfrak{I_1}(Z)=0$\\
+ Das eindeutig kleinste Modell von $\varphi$ ist $\mathfrak{I_1}$ mit $\mathfrak{I_1}(X)=0,\mathfrak{I_1}(Y)=0,\mathfrak{I_1}(Z)=0$\\
  
- Sei $\mathfrak{I_2}$ mit $\mathfrak{I_2}(A)=1,\mathfrak{I_2}(B)=0,\mathfrak{I_2}(C)=1$\\
- sowie $\mathfrak{I_3}$ mit $\mathfrak{I_3}(A)=1,\mathfrak{I_3}(B)=1,\mathfrak{I_3}(C)=0$\\ zwei weitere Interpretationen.\\
+ \noindent Seien $\mathfrak{I_2}$ mit $\mathfrak{I_2}(A)=1,\mathfrak{I_2}(B)=0,\mathfrak{I_2}(C)=1$\\
+ sowie $\mathfrak{I_3}$ mit $\mathfrak{I_3}(A)=1,\mathfrak{I_3}(B)=1,\mathfrak{I_3}(C)=0$\\ zwei weitere Interpretationen. Stelle fest, dass\\
  
  $(\mathfrak{I_2} \cap \mathfrak{I_3})(A)=1,(\mathfrak{I_2} \cap \mathfrak{I_3})(B)=0,\mathfrak{I_3})(C)=0$\\
  
-  Es gilt $\mathfrak{I_2}  \models \varphi,\mathfrak{I_3} \models \varphi$, aber dennoch $(\mathfrak{I_2} \cap \mathfrak{I_3}) \not \models \varphi$. Somit ist $\varphi$ nicht äquivalent zu einer Horn-Formel nach Teilaufgabe b). 
+\noindent Es gilt $\mathfrak{I_2}  \models \varphi,\mathfrak{I_3} \models \varphi$, aber dennoch $(\mathfrak{I_2} \cap \mathfrak{I_3}) \not \models \varphi$. Somit ist $\varphi$ nicht äquivalent zu einer Horn-Formel nach Teilaufgabe b), obwohl $\varphi$ ein eindeutig kleinstes Modell hat. Damit ist die Behauptung widerlegt.
 
 \end{adjustwidth}
 \textbf{(d)}
@@ -239,11 +245,11 @@ Beide Interpretationen sind Modelle für die gegebene Formel.\\
 Nach Teilaufgabe (b) sind die Modelle der Horn-Formeln unter Schnittbildung abgeschlossen.\\
 $(\mathfrak{I_1} \cap \mathfrak{I_2})(U)=(\mathfrak{I_1} \cap \mathfrak{I_2})(X)=(\mathfrak{I_1} \cap \mathfrak{I_2})(Y)=(\mathfrak{I_1} \cap \mathfrak{I_2})(Z)=0$\\
 
-Setze nun die neue Belegung in die Formel ein:\\
+\noindent Setze nun die neue Belegung in die Formel ein:\\
 
 $(0 \vee (\neg 0 \wedge 0) \vee 0) \vee (0 \wedge 0) \equiv (1 \wedge 0) \vee 0 \equiv 0$ \qquad Widerspruch!\\
 
-Das $(\mathfrak{I_1} \cap \mathfrak{I_2})$ ist also kein Modell von der gegebener Formel. Dies widerspricht der Abgeschlossenheit unter Schnittbildung.\\
+\noindent Das $(\mathfrak{I_1}\ \cap\ \mathfrak{I_2})$ ist also kein Modell von der gegebenen Formel. Dies widerspricht der Abgeschlossenheit unter Schnittbildung von Horn-Formeln.\\
 Die Formel ist somit nicht äquivalent zu einer Horn-Formel.\\
 (iii)\\
 $X \wedge \neg ( \neg Y \rightarrow (\neg Y \wedge X)) \wedge ((X \wedge Y)\rightarrow(Y \vee \neg Z))$\\

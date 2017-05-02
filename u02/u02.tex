@@ -83,7 +83,29 @@
 \textbf{(a)}
 \begin{adjustwidth}{20pt}{20pt}
 (i)\\
-TODO: Zu zeigen: $\{\neg , \leftrightarrow \}$ ist nicht funktional vollständig.\\
+Zu zeigen: $\{\neg , \leftrightarrow \}$ ist nicht funktional vollständig.\\
+$X \leftrightarrow Y \equiv (X \wedge Y) \vee (\neg X \wedge \neg Y ) $\\ 
+Zunächst wird der Hinweis überprüft:\\
+$\neg X \leftrightarrow Y \equiv ( \neg X \wedge Y) \vee ( \neg \neg X \wedge Y) \equiv ( 
+\neg X \wedge Y) \vee ( \neg \neg X \wedge Y) \equiv \neg ((X \wedge Y) \vee (\neg X
+\wedge \neg Y )) \equiv \neg ( X \leftrightarrow Y ) $\\
+Daraus folgt direkt das $\leftrightarrow$ X-alternierend ist. Für $\neg$ folgt diese
+Aussage direkt aus der Definition von $\neg$.\\
+Mit struktureller Induktion wird nun gezeigt das Formeln bestehend aus ${ \neg ,
+\leftrightarrow}$ entweder X-alternierend oder X-konstant sind.\\
+Seien $\varphi$ und $\vartheta$ Formeln bestehend aus ${\neg ,\leftrightarrow}$, wir
+nehmen nach Induktionsanfang an, dass die Formeln $\varphi$ und $\vartheta$ entweder X-
+konstant oder X-alternierend sind.\\
+\textbf{1. Fall:} $\varphi$ und $\vartheta$ sind X-alternierend.\\
+ $ \varphi (\neg X , \bar{Y} ) \leftrightarrow \vartheta (\neg X , \bar{Y} )  \equiv  \neg \varphi( X , \bar{Y} ) \leftrightarrow \neg \vartheta( X , \bar{Y} ) \equiv  \varphi ( X , \bar{Y} ) \leftrightarrow \vartheta ( X , \bar{Y} ) $\\
+Somit X-konstant.\\
+\textbf{2. Fall:} $\varphi$ und $\vartheta$ sind X-konstant.\\
+ $ \varphi (\neg X , \bar{Y} ) \leftrightarrow \vartheta (\neg X , \bar{Y} )  \equiv   \varphi( X , \bar{Y} ) \leftrightarrow  \vartheta( X , \bar{Y} ) $\\
+Somit X-konstant.\\
+ \textbf{3. Fall:} $\varphi$ X-alternierend und $\vartheta$ X-konstant.\\
+ $ \varphi (\neg X , \bar{Y} ) \leftrightarrow \vartheta (\neg X , \bar{Y} )  \equiv   \neg \varphi( X , \bar{Y} ) \leftrightarrow \vartheta( X , \bar{Y} ) \equiv   \neg (\varphi ( X , \bar{Y} ) \leftrightarrow \vartheta ( X , \bar{Y} )) $\\
+Somit X-alternierend.\\
+ Wäre ${ \neg , \leftrightarrow} $ funktional vollständig, wäre es auch möglich ${\wedge , \vee}$ darzustellen, da diese aber weder X-konstant, noch X-alternierend sind, ergibt sich dadurch ein Widerspruch und somit ist ${ \neg , \leftrightarrow} $ nicht funktional vollständig.\\
 (ii)\\
 Zu zeigen: $\{\downarrow\}$ ist funktional vollständig.\\
 

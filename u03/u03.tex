@@ -1,0 +1,156 @@
+\documentclass[11pt, a4paper]{article}
+
+\usepackage{graphicx} 
+\usepackage[utf8]{inputenc}
+\usepackage{fancyhdr}
+\usepackage{changepage}
+\usepackage[onehalfspacing]{setspace}
+\usepackage{ragged2e}
+\usepackage{ amssymb, amsmath, amsthm, dsfont }
+\usepackage[width = 18cm, top = 2.5cm, bottom = 3cm]{geometry}
+\usepackage{extarrows}
+\usepackage{stmaryrd}
+% ---------
+
+\newcommand{\myTitleString} {}
+\newcommand{\myAuthorString} {}
+\newcommand{\mySubTitleString} {}
+\newcommand{\myDateString} {}
+
+\newcommand{\myTitle}[1] {\renewcommand {\myTitleString}{#1}}
+\newcommand{\mySubTitle}[1] {\renewcommand {\mySubTitleString}{#1}}
+\newcommand{\myAuthor}[1] {\renewcommand{\myAuthorString}		{#1}}
+\newcommand{\myDate}[1] {\renewcommand{\myDateString}{#1}}
+
+\newcommand{\makeMyTitle}
+{
+\pagestyle{fancy}
+\fancyhead[L]
+{
+\begin{tabular}{l}
+\myTitleString
+\\ \mySubTitleString 
+\\ \myDateString
+\end{tabular}
+} 			
+\fancyhead[C]{}
+\fancyhead[R]{\myAuthorString}
+\fancyfoot[C]{\thepage}
+}
+
+\setlength{\headheight}{45pt}
+
+\newcommand{\p}{8}
+\newcommand{\pp}{5}
+\newcommand{\ppp}{8}
+\newcommand{\pppp}{7} 
+
+\newcommand{\defgl}{\mathrel{=\!\!\mathop:}}
+\newcommand{\defgr}{\mathrel{\mathop:\!\!=}}
+
+\makeatletter
+\renewcommand*\env@matrix[1][*\c@MaxMatrixCols c]{%
+  \hskip -\arraycolsep
+  \let\@ifnextchar\new@ifnextchar
+  \array{#1}}
+\makeatother
+% ---------
+%\setlength{\parindent}{0pt}
+\begin{document}
+
+\myTitle{Mathematische Logik}
+\mySubTitle{Übung X}
+\myDate{24. April 2017}
+\myAuthor
+{
+\begin{tabular}{l l}
+346532, &Daniel Boschmann\\
+348776, &Anton Beliankou	\\
+356092, &Daniel Schleiz
+\end{tabular}
+}
+\makeMyTitle
+
+\begin{tabular}{|c|c|c|c|c|}\hline
+   2 & 3 & 4 & 5 &$\sum$\\\hline
+  	 \qquad/\p & \qquad/\pp & \qquad/\ppp & \qquad/\pppp &\qquad/28\\\hline
+ \end{tabular}
+\hspace*{20pt} {\huge Gruppe \textbf{G}}
+\vspace*{30pt}
+
+
+\section*{Aufgabe 2 (Punkte:\qquad/\p)}
+\textbf{(a)}\\
+\null\ \ \textbf{(i)}
+\begin{adjustwidth}{20pt}{20pt}
+Die Aussage ist falsch. Seien $\varphi=0, \psi=1$. Dann gilt $\varphi \rightarrow \psi \models \varphi$ nicht, da $\varphi \rightarrow \psi$ eine Tautologie ist und insbesondere
+jede Interpretation dazu passt, während $\varphi$ unerfüllbar ist und ebenfalls jede Interpretation dazu passt.
+\end{adjustwidth}
+\null\ \ \textbf{(ii)}
+\begin{adjustwidth}{20pt}{20pt}
+Die Aussage ist wahr. Zeige dazu beide Richtungen der Aussage:
+\end{adjustwidth}
+\begin{itemize}
+\item $"\Rightarrow"$:\\
+Es gelte $\Phi \models \psi$. Dann gilt für alle Modelle $\mathfrak{I}$ von $\Phi$, dass $\llbracket \psi\rrbracket^{\mathfrak{I}}=1$. Da somit
+$\llbracket \neg\psi\rrbracket^{\mathfrak{I}}=0$ für alle Modelle $\mathfrak{I}$ von $\Phi$ , existiert kein Modell für $\Phi \cup \{ \neg\psi \}$, also unerfüllbar.
+\item $"\Leftarrow"$:\\
+Sei $\Phi \cup \{ \neg\psi \}$ unerfüllbar. Betrachte zwei Fälle: Ist $\Phi$ unerfüllbar, so gilt $\Phi \models \psi$, da für alle Modelle von $\Phi$, welche nicht existieren, gilt, dass
+diese auch Modell von $\psi$ sind. Ist aber $\Phi$ erfüllbar, so besitzt $\Phi$ mindestens ein Modell. Da angenommen wurde, dass $\Phi \cup \{ \neg\psi \}$ unerfüllbar ist, gilt für
+alle Modelle $\mathfrak{I}$ von $\Phi$, dass $\llbracket \neg\psi\rrbracket^{\mathfrak{I}}=0$., da sonst $\Phi \cup \{ \neg\psi \}$ erfüllbar wäre. Somit gilt für diese Modelle auch
+$\llbracket \psi\rrbracket^{\mathfrak{I}}=1$ und damit folgt $\Phi \models \psi$.
+\end{itemize}
+\null\ \ \textbf{(iii)}
+\begin{adjustwidth}{20pt}{20pt}
+Die Aussage ist wahr. Da $\Phi \models \psi$ für alle $\psi \in \Psi$ gilt, ist jedes (zu $\Phi \cup \Psi$ passende) Modell von $\Phi$ ebenfalls Modell von $\Psi$. Gilt nun $\Psi \models \varphi$,
+so ist jedes der eben erwähnten Modelle ebenfalls Modell von $\varphi$. Also gilt auch $\Phi \models \varphi$.
+\end{adjustwidth}
+\textbf{(b)}
+\begin{adjustwidth}{20pt}{20pt}
+Mit (a)(ii) ist die Gültigkeit der gegebenen Folgerungsbeziehung äquivalent zur Unerfüllbarkeit von 
+\begin{align*}
+	& \{ Y \vee \neg Z \vee Q, \neg Y \vee \neg Z, U \vee Y \vee \neg Q, U \vee X, \neg X \vee Y \vee \neg Z\} \cup \{ \neg (Z \rightarrow (U \wedge Q))\}\\
+	\equiv & \{ Y \vee \neg Z \vee Q, \neg Y \vee \neg Z, U \vee Y \vee \neg Q, U \vee X, \neg X \vee Y \vee \neg Z\} \cup \{ Z \wedge (\neg U \vee \neg Q)\}
+\end{align*}
+Überführe die Formelmenge in die Klauselmenge
+\[
+	K=\{ \{ Y, \neg Z, Q\}, \{ \neg Y, \neg Z\}, \{ U, Y, \neg Q\}, \{ U, X\}, \{\neg X, Y, \neg Z\}, \{ Z\}, \{ \neg U, \neg Q\} \}.
+\]
+Resolviere $\{ Y, \neg Z, Q\}$ mit $\{ \neg Y, \neg Z\}$ und erhalte die Resolvente $C_1\defgr\{\neg Z, Q\}$. Resolviere $C_1$ mit $\{ \neg U, \neg Q\}$ und erhalte die
+Resolvente $C_2\defgr\{\neg Z, \neg U\}$. Resolviere $C_2$ mit $\{ U, X\}$, erhalte die Resolvente $C_3\defgr \{\neg Z, X\}$. Resolviere $C_3$ mit $\{\neg X, Y, \neg Z\}$ und
+erhalte die Resolvente $C_4\defgr \{\neg Z, Y\}$. Resolviere $C_4$ mit $\{ \neg Y, \neg Z\}$ und erhalte die Resolvente $C_5\defgr \{ \neg Z\}$. Resolviere nun noch $C_5 = \{ \neg Z\}$
+mit $\{ Z\}$ und erhalte schließlich die leere Klausel $\square$.\\
+Da die leere Klausel ableitbar ist, ist die Klauselmenge $K$ unerfüllbar. Somit folgt die Gültgkeit der Folgerungsbeziehung.
+\end{adjustwidth}
+\section*{Aufgabe 3 (Punkte:\qquad/\pp)}
+
+\begin{adjustwidth}{20pt}{20pt}
+
+\end{adjustwidth}
+
+
+
+
+
+\section*{Aufgabe 4 (Punkte:\qquad/\ppp)}
+\textbf{(a)}
+\begin{adjustwidth}{20pt}{20pt}
+
+
+\end{adjustwidth}
+\textbf{(b)}
+\begin{adjustwidth}{20pt}{20pt}
+
+
+\end{adjustwidth}
+
+
+\section*{Aufgabe 5 (Punkte:\qquad/\pppp)}
+
+\begin{adjustwidth}{20pt}{20pt}
+
+\end{adjustwidth}
+
+
+
+\end{document}

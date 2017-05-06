@@ -122,10 +122,19 @@ erhalte die Resolvente $C_4\defgr \{\neg Z, Y\}$. Resolviere $C_4$ mit $\{ \neg 
 mit $\{ Z\}$ und erhalte schließlich die leere Klausel $\square$.\\
 Da die leere Klausel ableitbar ist, ist die Klauselmenge $K$ unerfüllbar. Somit folgt die Gültgkeit der Folgerungsbeziehung.
 \end{adjustwidth}
+
+
 \section*{Aufgabe 3 (Punkte:\qquad/\pp)}
-
 \begin{adjustwidth}{20pt}{20pt}
-
+Beobachte, dass bei einer Resolution von zwei Klauseln mit höchstens 2 Literalen die Resolvente wieder höchstens zwei Literale enthält. Da in den beiden Klauseln das gleiche Literal einmal
+negativ und einmal positiv auftreten muss, damit eine Resolvente existiert, können in der Resolvente höchstens zwei Literale enthalten sein, falls die jeweils anderen Literale der Klauseln ungleich waren, ansonsten enthält die Resolvente nur ein Literal.\par
+In einer gegebenen Klauselmenge mit $n$ Variablen treten höchstens $2n$ Literale auf (positiv und negativ). Es existieren maximal
+\[
+	\binom{2n}{2}+\binom{2n}{1}+\binom{2n}{0} = \frac{2n(2n-1)}{2}+2n+1 = 2n^2+n+1 \in \mathcal{O}(n^2)
+\]
+Klauseln mit höchstens 2 Literalen. Mithilfe der Resolution bricht man in maximal so vielen Schritten ab, das heißt das Problem ist mithilfe der Resolution in polynomieller Zeit lösbar.\par
+Für Klauselmengen mit höchstens 3 Literalen klappt diese Überlegung nicht, da bei einem Resolutionsschritt eine Resolvente mit 4 Literalen entstehen kann, danach könnten immer
+größere Resolventen entstehen. Die Anzahl der möglichen verschiedenen Klauseln wäre wieder nur durch $2^{2n}$ beschränkt, d.h. im Worst-Case exponentielle Laufzeit.
 \end{adjustwidth}
 
 
@@ -146,7 +155,6 @@ Da die leere Klausel ableitbar ist, ist die Klauselmenge $K$ unerfüllbar. Somit
 
 
 \section*{Aufgabe 5 (Punkte:\qquad/\pppp)}
-
 \begin{adjustwidth}{20pt}{20pt}
 
 \end{adjustwidth}

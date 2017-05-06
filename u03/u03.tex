@@ -59,7 +59,7 @@
 \begin{document}
 
 \myTitle{Mathematische Logik}
-\mySubTitle{Übung X}
+\mySubTitle{Übung 3}
 \myDate{24. April 2017}
 \myAuthor
 {
@@ -144,12 +144,53 @@ größere Resolventen entstehen. Die Anzahl der möglichen verschiedenen Klausel
 \section*{Aufgabe 4 (Punkte:\qquad/\ppp)}
 \textbf{(a)}
 \begin{adjustwidth}{20pt}{20pt}
-
-
+Definiere $f:\{ 1,2,3\} \to \{ a,b\}$ mit $f(1)=a, f(2)=b, f(3)=a$. Für die Kante $(1,2)$ in $H$ ist $(f(1),f(2))=(a,b)$ in $G$, für die Kante $(2,3)$ in $H$ liegt $(f(2),f(3))=(b,a)$ in $G$.
+Aufgrund der Existenz der Abbildung $f$ ist $H$ homomorph zu $G$.
 \end{adjustwidth}
 \textbf{(b)}
 \begin{adjustwidth}{20pt}{20pt}
-
+Seien ein endlicher Graph $H=(V', E')$ und ein Graph $G=(V,E)$. Zeige, dass $G$ genau dann homomorph zu $H$ ist, wenn jeder endliche Untergraph von $G$ homomorph zu $H$ ist. \par
+Konstruiere zunächst eine aussagenlogische Formel $\Phi$, welche erfüllbar ist gdw. $G$ homomorph zu $H$ ist. Definiere dazu:
+\begin{align*}
+	\Phi_1 & \defgr \{ \bigvee_{v'\in V'} X_{v\mapsto v'}\ |\ v\in V \}\\
+	\Phi_2 & \defgr \{ X_{uv}\ |\ (u,v)\in E'\}\\
+	\Phi_3 & \defgr \{ \neg X_{uv}\ |\ u,v\in V', (u,v)\notin E'\}\\
+	\Phi_4 & \defgr \{ (X_{v\mapsto v'} \wedge X_{w\mapsto w'}) \rightarrow X_{v'w'}\ |\ (v,w) \in E, v', w' \in V'\}\\
+	\Phi     & \defgr \Phi_1 \cup \Phi_2 \cup \Phi_3 \cup \Phi_4
+\end{align*}
+Die erste Formelmenge $\Phi_1$ stellt sicher, dass jeder Knoten $v \in V$ auf einen Knoten $v'$ in $H$ abgebildet wird, eine 1 bei $X_{v\mapsto v'}$ soll dies symbolisieren.
+Die Disjunktion erlaubt, dass theoretisch $v$ auf mehrere Knoten abgebildet werden könnte, jedoch erschwert dies nur $\Phi_4$ und ändert nichts an der eigentlichen Aussage.\\
+Die Formelmengen $\Phi_2$ und $\Phi_3$ symbolisieren die Kanten in $H$, wobei für eine erfüllende Belegung $X_{uv}=1$ gewählt werden muss, falls $(u,v)\in E'$, und 0 falls
+die Kante in $H$ nicht existiert.\\
+$\Phi_4$ prüft nun das eigentliche Homomorphiekriterium: Für jede Kante in $G$ existiert für alle möglichen Abbildungen von dessen Endknoten auf Knoten in $H$
+($X_{v\mapsto v'} \wedge X_{w\mapsto w'}$) eine Formel. Sind dies nicht die in $\Phi_1$ "gewählten" Abbildungen, d.h. mindestens eine der Variablen ist 0, so ist die Formel
+automatisch erfüllt, die linke Seite der Implikation falsch ist. Sind aber nun die in $\Phi_1$ auf 1 gesetzten Variablen enthalten, so muss die Kante der abgebildeten Knoten in
+$H$ existieren (rechte Seite der Implikation), da sonst die Formel nicht erfüllt wäre. Es ist nicht schlimm, wenn ein Modell einen Knoten in $\Phi_1$ auf mehrere Knoten abbildet (mehrere
+Variablen innerhalb einer der Disjunktionen werden auf 1 gesetzt), denn durch Streichen überflüssiger 1en im Modell ändert sich nichts am Wahrheitswert von $\Phi$, weil
+so nur ein paar Implikationen in $\Phi_4$ trivialerweise durch eine 0 auf der linken Seite erfüllt werden.\\
+Also liefert jedes Modell von $\Phi$ einen korrekten Homomorphismus, und umgekehrt. (Wähle die Kantenvariablen in $\Phi_2$ und $\Phi_3$ wie bereits erläutert entsprechend
+der Kanten in $H$ und $X_{v\mapsto v'}$ gleich 1, wenn der korrekte Homomorphismus $v$ auf $v'$ abbildet.)\\ \ \\
+Die Richtung, dass $G$ homomorph zu $H$ ist, wenn jeder endliche Untergraph von $G$ homomorph zu $H$ ist, ist klar, da sich der Homomorphismus auf die Knoten eines jeden
+Untergraphen einschränken lässt und die geforderte Bedingung immer noch gilt, weil höchstens Kanten im Untergraphen wegfallen und $H$ gleich bleibt.\\
+Bleibt also noch zu zeigen, dass wenn jeder endliche Untergraph von $G$ homomorph zu $H$ ist, dann $G$ homomorph zu $H$, wobei $G$ homomorph zu $H$ äquivalent zur Aussage
+ist, dass $\Phi$ erfüllbar. Dies ist wiederum mit dem Kompaktheitssatz äquivalent zur Aussage, dass jede endliche Teilmenge $\Phi_0 \subseteq \Phi$ erfüllbar. Sei also jeder endliche
+Untergraph von $G$ homomorph zu $H$ und $\Phi_0 \subseteq \Phi$ eine beliebige endliche Teilmenge. Bezeichne $G_0$ den Untergraphen von $G$, induziert von denjenigen Knoten
+$v \in V$, sodass eine Variable $X_{v\mapsto v'}$ in $\Phi_0$ vorkommt. $G_0$ ist endlich, weshalb nach Annahme $G_0$ homomorph zu $H$ ist, also existiert ein solcher Homomorphismus h.
+Sei nun die Interpretation $\mathfrak{I_0}$ mit 
+\[
+	\mathfrak{I_0}(X_{uv})=
+		\begin{cases}
+		1, &\quad \text{falls } (u,v) \in E\\
+		0, &\quad \text{sonst}
+		\end{cases}
+	\qquad \text{und} \qquad
+	\mathfrak{I_0}(X_{v\mapsto v'})=
+		\begin{cases}
+		1, &\quad \text{falls } h(v)=v'\\
+		0, &\quad \text{sonst}
+		\end{cases}
+\]
+$\mathfrak{I_0}$ ist dabei Modell von $\Phi_0$ aufgrund vorangegangener Überlegungen. Somit gilt die zu zeigende Aussage.
 
 \end{adjustwidth}
 

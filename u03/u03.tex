@@ -58,7 +58,7 @@
 %\setlength{\parindent}{0pt}
 \begin{document}
 
-\myTitle{Mathematische Logik}
+\myTitle{\textsc{Mathematische Logik}}
 \mySubTitle{Übung 3}
 \myDate{24. April 2017}
 \myAuthor
@@ -197,7 +197,25 @@ $\mathfrak{I_0}$ ist dabei Modell von $\Phi_0$ aufgrund vorangegangener Überleg
 
 \section*{Aufgabe 5 (Punkte:\qquad/\pppp)}
 \begin{adjustwidth}{20pt}{20pt}
-
+	Definiere wie in der Aufgabestellung vorgeschlagen für jede Teilmenge $u \in \mathbb{N}$ eine Aussagenvariable $X_u$ mit der intendierten Interpretation, dass $X_u$ wahr sein soll,
+	wenn $u$ groß ist.Definiere für die Bedingungen (1)-(5) die Formelmengen 
+	\begin{align*}
+		\Phi_1 & \defgr \{ X_u \vee \neg X_u\ |\ u \subseteq \mathbb{N}\}\\
+		\Phi_2 & \defgr \{ X_u \rightarrow \neg X_{\mathbb{N} \setminus u}\ |\ u \subseteq \mathbb{N}\}\\
+		\Phi_3 & \defgr \{ \neg X_u \rightarrow \neg X_v\ |\ v \subseteq u \subseteq \mathbb{N}\}\\
+		\Phi_4 & \defgr \{ (\neg X_u \wedge \neg X_v) \rightarrow \neg X_w\ |\ u,v,w \subseteq \mathbb{N}, w=u \cup v\}\\
+		\Phi_5 & \defgr \{ \neg X_u\ |\ u \subseteq \mathbb{N} \text{ ist endlich}\}\\
+		\Phi     & \defgr \Phi_1 \cup \Phi_2 \cup \Phi_3 \cup \Phi_4 \cup \Phi_5
+\end{align*}
+Nun ist $\Phi$ erfüllt genau dann, wenn eine solche Einteilung in große und kleine Mengen existiert. Zeige also, dass $\Phi$ erfüllbar ist. Mit dem Kompaktheitssatz ist dies
+äquivalent zur Aussage, dass jede endliche Teilmenge von $\Phi$ erfüllbar ist, zeige dies nun.\\
+Sei eine beliebige, endliche Teilmenge $\Phi_0 \subseteq \Phi$. Dann existiert eine endliche Menge $N \defgr \{ u \subseteq \mathbb{N}\ |\ X_u \in \Phi_0\}$.Die Bedingungen
+(1)-(4) sind für $N$ erfüllt, da man ein festes $n \in \mathbb{N}$ wählen kann und eine Menge groß ist, genau dann wenn sie $n$ enthält. (1) ist erfüllt, da eine Menge entweder
+$n$ enthält oder nicht und somit entweder groß oder klein ist. (2) ist erfüllt, denn eine Menge enthält $n$ genau dann, wenn das Komplement $n$ nicht enthält. Eine Teilmenge
+einer kleinen Menge (welche $n$ nicht enthält), kann ebenfalls nicht $n$ enthalten, sonst wäre es keine Teilmenge (3). Die Vereinigung von zwei Mengen, die $n$ nicht enthalten
+(und somit klein sind), kann ebenfalls $n$ nicht enthalten, somit gilt (4). Da nun noch $N$ endlich ist, wird (5) von (1)-(4) impliziert, also existiert ein Modell für $\Phi_0$,
+d.h. $\Phi_0$ ist erfüllbar. Da $\Phi_0$ beliebig aber endlich gewählt war, ist mit dem Kompaktheitssatz auch $\Phi$ erfüllbar. Somit ist die Aussage, dass man die Teilmengen von
+$\mathbb{N}$ in große und kleine Mengen einteilen kann, gezeigt.
 \end{adjustwidth}
 
 

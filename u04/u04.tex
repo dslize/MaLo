@@ -1,0 +1,195 @@
+\documentclass[11pt, a4paper]{article}
+
+\usepackage{graphicx}
+\usepackage{forest}
+\usepackage[utf8]{inputenc}
+\usepackage{fancyhdr}
+\usepackage{changepage}
+\usepackage[onehalfspacing]{setspace}
+\usepackage{ragged2e}
+\usepackage{ amssymb, amsmath, amsthm, dsfont }
+\usepackage[width = 18cm, top = 2.5cm, bottom = 3cm]{geometry}
+\usepackage{extarrows}
+\usepackage{stmaryrd}
+% ---------
+
+\newcommand{\myTitleString} {}
+\newcommand{\myAuthorString} {}
+\newcommand{\mySubTitleString} {}
+\newcommand{\myDateString} {}
+
+\newcommand{\myTitle}[1] {\renewcommand {\myTitleString}{#1}}
+\newcommand{\mySubTitle}[1] {\renewcommand {\mySubTitleString}{#1}}
+\newcommand{\myAuthor}[1] {\renewcommand{\myAuthorString}		{#1}}
+\newcommand{\myDate}[1] {\renewcommand{\myDateString}{#1}}
+
+\newcommand{\makeMyTitle}
+{
+\pagestyle{fancy}
+\fancyhead[L]
+{
+\begin{tabular}{l}
+\myTitleString
+\\ \mySubTitleString 
+\\ \myDateString
+\end{tabular}
+} 			
+\fancyhead[C]{}
+\fancyhead[R]{\myAuthorString}
+\fancyfoot[C]{\thepage}
+}
+
+\setlength{\headheight}{45pt}
+
+\newcommand{\p}{9}
+\newcommand{\pp}{4}
+\newcommand{\ppp}{9}
+\newcommand{\pppp}{8} 
+
+\newcommand{\defgl}{\mathrel{=\!\!\mathop:}}
+\newcommand{\defgr}{\mathrel{\mathop:\!\!=}}
+
+\makeatletter
+\renewcommand*\env@matrix[1][*\c@MaxMatrixCols c]{%
+  \hskip -\arraycolsep
+  \let\@ifnextchar\new@ifnextchar
+  \array{#1}}
+\makeatother
+% ---------
+%\setlength{\parindent}{0pt}
+\begin{document}
+
+\myTitle{\textsc{Mathematische Logik}}
+\mySubTitle{Übung 4}
+\myDate{13. Mai 2017}
+\myAuthor
+{
+\begin{tabular}{l l}
+346532, &Daniel Boschmann\\
+348776, &Anton Beliankou	\\
+356092, &Daniel Schleiz
+\end{tabular}
+}
+\makeMyTitle
+
+\begin{tabular}{|c|c|c|c|c|}\hline
+   2 & 3 & 4 & 5 &$\sum$\\\hline
+  	 \qquad/\p & \qquad/\pp & \qquad/\ppp & \qquad/\pppp &\qquad/30\\\hline
+ \end{tabular}
+\hspace*{20pt} {\huge Gruppe \textbf{G}}
+\vspace*{30pt}
+
+
+\section*{Aufgabe 2 (Punkte:\qquad/\p)}
+\textbf{(a)}
+\begin{adjustwidth}{20pt}{20pt}
+	Sei eine Klauselmenge $K$ ohne positive Klauseln gegeben und seien $\{ X_1,...,X_n\}$ die darin vorkommenden Aussagenvariablen. Da $K$ keine
+	positiven Klauseln enthält, folgt, dass jede Klausel mindestens ein negatives Literal enthält. Es ist $\mathfrak{I}$ mit $\mathfrak{I}(X_i)=0$ für $i \in \{ 1,...,n\}$
+	ein Modell jeder Klausel in $K$, da in einer Klausel stets ein negatives Literal auftritt. Somit folgt, dass auch $K$ durch $\mathfrak{I}$ erfüllt wird. Da $K$ eine
+	beliebige Klauselmenge ohne positive Klauseln ist, gilt die Aussage.
+\end{adjustwidth}
+\textbf{(b)}
+\begin{adjustwidth}{20pt}{20pt}
+\begin{forest}
+  for tree={
+    grow'=90,
+    parent anchor=north,
+    math content,
+    before typesetting nodes={
+      if level=0{}{
+        if content={}{
+          shape=coordinate
+        }{
+          content/.wrap value={\{#1\}},
+        },
+      },
+    }
+  }
+  [\Box
+    [{Y}
+      [{Y,\neg X}
+        [{Z,Y}
+          [{\neg X,Z,Y}]
+          [{X,Y}]
+        ]
+        [
+          [{\neg X,\neg Z}]
+        ]
+      ]
+      [
+        [
+          [{X,Y}]
+        ]
+      ]
+    ]
+    [
+      [
+        [
+          [{\neg Y}]
+        ]
+      ]
+    ]
+  ]
+\end{forest}\ \\
+Da die leere Klausel mittels P-Resolution ableitbar ist, ist $K$ unerfüllbar.
+\end{adjustwidth}
+\textbf{(c)}
+\begin{adjustwidth}{20pt}{20pt}
+
+\end{adjustwidth}
+\textbf{(d)}
+\begin{adjustwidth}{20pt}{20pt}
+
+\end{adjustwidth}
+
+
+
+\section*{Aufgabe 3 (Punkte:\qquad/\pp)}
+\textbf{(a)}
+\begin{adjustwidth}{20pt}{20pt}
+Die Sequenz ist nicht gültig. Betrachte hierzu die Interpretation $\mathfrak{I}:U \mapsto 1,Z \mapsto 0, Y \mapsto 1, X \mapsto 0$, welche beide Formeln auf der rechten Seite
+der Implikation nicht erfüllt. Da diese Interpretation erfüllend ist für beide Formeln auf der linken Seite der Implikation, ist die Sequenz ungültig, da eine falsifizierende Interpretation
+existiert.
+\end{adjustwidth}
+\textbf{(b)}
+\begin{adjustwidth}{20pt}{20pt}
+Angenommen, es existiert eine falsifizierende Interpretation $\mathfrak{I}$ für die gegebene Sequenz, d.h. $\mathfrak{I}$ erfüllt alle Formeln auf der linken Seite der Interpretation
+und keine auf der rechten Seite. Es muss $\mathfrak{I}(X)=1$ gelten, da $\mathfrak{I}$ die linke Seite erfüllen muss und $X$ in beiden Konjunktionen innerhalb der Klammern auftritt.
+Da $\mathfrak{I}$ die rechte Seite nicht erfüllen darf, muss $\mathfrak{I}(U)=0$ gelten, da sonst $U \wedge X$ erfüllt wäre. Da nun $\llbracket (X \wedge U)\rrbracket^\mathfrak{I}=0$,
+muss $\mathfrak{I}$ die linke Konjunktion, $(X \wedge \neg Y \wedge Z)$, erfüllen, das heißt es müsste $\mathfrak{I}(Y)=0$ und $\mathfrak{I}(Z)=1$ gelten. Dann ist aber
+$\llbracket (\neg Y \wedge \neg U)\rrbracket^\mathfrak{I}=1$, und somit ist eine Formel der rechten Seite erfüllt. Dies steht im Widerspruch zur Annahme, dass $\mathfrak{I}$ eine
+falsifizierende Interpretation ist. $\lightning$\\
+Da also keine falsifizierende Interpretation für die gegebene Sequenz existiert, ist die Sequenz gültig.
+\end{adjustwidth}
+
+
+
+\section*{Aufgabe 4 (Punkte:\qquad/\ppp)}
+\textbf{(a)}
+\begin{adjustwidth}{20pt}{20pt}
+
+\end{adjustwidth}
+\textbf{(b)}
+\begin{adjustwidth}{20pt}{20pt}
+
+\end{adjustwidth}
+
+
+
+\section*{Aufgabe 5 (Punkte:\qquad/\pppp)}
+\textbf{(a)}
+\begin{adjustwidth}{20pt}{20pt}
+
+\end{adjustwidth}
+\textbf{(b)}
+\begin{adjustwidth}{20pt}{20pt}
+
+\end{adjustwidth}
+\textbf{(c)}
+\begin{adjustwidth}{20pt}{20pt}
+
+\end{adjustwidth}
+
+
+
+\end{document}

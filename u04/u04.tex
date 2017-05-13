@@ -179,15 +179,40 @@ Da also keine falsifizierende Interpretation für die gegebene Sequenz existiert
 \section*{Aufgabe 5 (Punkte:\qquad/\pppp)}
 \textbf{(a)}
 \begin{adjustwidth}{20pt}{20pt}
-
+Die Schlussregel ist korrekt. Seien $\Gamma,\varphi \Rightarrow \Delta,\psi$ und $\Gamma,\psi \Rightarrow \Delta,\vartheta$ gültig, und sei $\mathfrak{I}$ ein Modell von
+$\Gamma, \neg \vartheta$. (Falls $\Gamma, \neg \vartheta$ unerfüllbar, gilt die zu zeigende Aussage sofort.) Insbesondere ist $\mathfrak{I}$ Modell von $\Gamma$. Betrachte
+nun zwei Fäle:
+\begin{itemize}
+\item $\mathfrak{I} \not\models \psi$. Dann ist $\Gamma, \neg \vartheta \Rightarrow \Delta, \psi \rightarrow \varphi$ gültig, da in dem Fall $\mathfrak{I}$ Modell von $\psi \rightarrow
+	\varphi$ ist.
+\item $\mathfrak{I} \models \psi$. Da angenommen, dass $\Gamma,\psi \Rightarrow \Delta,\vartheta$ gültig ist und in dem Fall $\mathfrak{I}$ Modell von $\Gamma,\psi$ ist, muss
+	$\mathfrak{I}$ Modell von einer Formel $\delta \in \Delta$ oder von $\vartheta$. Da aber $\mathfrak{I}$ aber als Modell von $\Gamma, \neg \vartheta$ gewählt war,
+	kann $\mathfrak{I}$ kein Modell von $\vartheta$ sein. Also ist $\mathfrak{I}$ Modell einer Formel $\delta \in \Delta$. Damit ist die Sequenz $\Gamma, \neg \vartheta
+	\Rightarrow \Delta, \psi \rightarrow \varphi$ gültig.
+\end{itemize}
+Da also $\Gamma, \neg \vartheta \Rightarrow \Delta, \psi \rightarrow \varphi$ stets gültig ist unter den gegebenen Bedingungen, ist die Korrektheit dieser Schlussregel gezeigt.
 \end{adjustwidth}
 \textbf{(b)}
 \begin{adjustwidth}{20pt}{20pt}
-
+Die Schlussregel ist nicht korrekt. Seien $\Gamma=\O, \Delta=\O, \psi = 1, \varphi = 0$. Dann ist die Sequenz $(\Gamma,\psi \rightarrow \varphi \Rightarrow \Gamma)\equiv
+(\O,1 \rightarrow 0 \Rightarrow \O)$ gültig, da die linke Seite unerfüllbar ist (aufgrund der Formel $1 \rightarrow 0$). Außerdem ist die Sequenz $(\neg \varphi \Rightarrow
+\psi, \Delta)\equiv(1 \Rightarrow 1,\Delta)$ gültig, da jede Interpretation die linke Seite (bestehend aus 1) erfüllt und dabei stets die erste Formel der rechten Seite, ebenfalls 1,
+stets erfüllt ist.\\
+Mithilfe Der Schlussregel müsste dann auch die Sequenz $(\Gamma \Rightarrow \Delta)\equiv(\O \Rightarrow \O)$ gültig sein, dies ist aber nicht der Fall, da jedes Modell der linken
+Seite (also jede Interpretation) nicht Modell von mindestens einer Formel der rechten Seite ist, da $\O$ keine Formeln enthält. Es folgt also, dass die Schlussregel nicht korrekt ist.
 \end{adjustwidth}
 \textbf{(c)}
 \begin{adjustwidth}{20pt}{20pt}
-
+Die Schlussregel ist korrekt. Seien $\Gamma \Rightarrow \Delta,\psi$ und $\Gamma \Rightarrow \Delta,\vartheta$ gültig. Falls $\Gamma$ unerfüllbar ist, so ist auch die Sequenz
+$\Gamma \Rightarrow \Delta,\psi \wedge \vartheta$ gültig, da jedes Modell der linken Seite, welches nicht existiert, auch Modell einer Formel der rechten Seite ist. Sei nun
+$\Gamma$ erfüllbar und sei $\mathfrak{I}$ ein beliebiges Modell von $\Gamma$. Betrachte zwei Fälle:
+\begin{itemize}
+\item $\mathfrak{I}$ ist Modell von mindestens einer Formel aus $\Delta$. Dies genügt bereits für die nachfolgende Argumentation.
+\item $\mathfrak{I}$ ist Modell von keiner Formel aus $\Delta$. Es folgt nun, dass $\mathfrak{I} \models \psi$ und $\mathfrak{I} \models \vartheta$ gelten muss, da sonst entgegen
+	der Annahme $\Gamma \Rightarrow \Delta,\psi$ und $\Gamma \Rightarrow \Delta,\vartheta$ nicht gültig wären. Damit gilt auch $\mathfrak{I} \models (\psi \wedge \vartheta)$. 
+\end{itemize}
+Somit ist jedes Modell von $\Gamma$ auch Modell einer Formel aus $\Delta$ oder Modell von $\psi \wedge \vartheta$. Es folgt die Gültigkeit von $\Gamma \Rightarrow \Delta,\psi \wedge
+\vartheta$, dies war zu zeigen. Die Schlussregel ist damit korrekt.
 \end{adjustwidth}
 
 

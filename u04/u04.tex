@@ -176,7 +176,109 @@ Da also keine falsifizierende Interpretation für die gegebene Sequenz existiert
 \section*{Aufgabe 4 (Punkte:\qquad/\ppp)}
 \textbf{(a)}
 \begin{adjustwidth}{20pt}{20pt}
+\textbf{(i)}\\
 
+Wende $(\Rightarrow,\wedge)$ an:\\
+
+$
+\dfrac
+{U\vee \neg X,Z \Rightarrow Y,\neg (X \rightarrow Y) \text{\qquad} U\vee \neg X,Z \Rightarrow Y,\neg U \rightarrow Z}
+{U\vee \neg X,Z \Rightarrow Y,\neg (X \rightarrow Y)\wedge (\neg U \rightarrow Z)}
+$\\
+
+Weiter mit $(\Rightarrow, \neg)$ auf das linke Blatt und $(\Rightarrow, \rightarrow)$  auf das rechte Blatt:\\ 
+
+$
+\dfrac
+{\dfrac{U\vee \neg X,Z,X \rightarrow Y \Rightarrow Y}{U\vee \neg X,Z \Rightarrow Y,\neg (X \rightarrow Y)} \text{\qquad} \dfrac{U\vee \neg X,Z,\neg U \Rightarrow Y,Z}{U\vee \neg X,Z \Rightarrow Y,\neg U \rightarrow Z}}
+{U\vee \neg X,Z \Rightarrow Y,\neg (X \rightarrow Y)\wedge (\neg U \rightarrow Z)}
+$\\
+
+Das rechte Blatt ist nun ein Axiom. Wende $(\vee, \Rightarrow)$ auf linkes Blatt.\\
+
+$
+\dfrac
+{\dfrac{
+		\dfrac
+		{X,Z,U \Rightarrow Y \text{\qquad}  X,Z,\neg X \Rightarrow Y}
+		{U\vee \neg X,Z,X \rightarrow Y \Rightarrow Y}}
+{U\vee \neg X,Z \Rightarrow Y,\neg (X \rightarrow Y)} \text{\qquad} \dfrac
+	{	\dfrac
+		{\text{Axiom}}
+		{U\vee \neg X,Z,\neg U \Rightarrow Y,Z}}
+	{U\vee \neg X,Z \Rightarrow Y,\neg U \rightarrow Z}}
+{U\vee \neg X,Z \Rightarrow Y,\neg (X \rightarrow Y)\wedge (\neg U \rightarrow Z)}
+$\\
+
+Nun sieht man, die falsifizierende Interpretation wäre $\mathfrak{I}: X \mapsto 1, Y \mapsto 0, Z \mapsto 1, U \mapsto 1$. Daher existiert es kein Beweis für die gegebene Sequenz. Die Sequenz ist nicht gültig.\\
+\vspace*{35pt}
+
+\textbf{(ii)}\\
+
+Mit $(\vee \Rightarrow)$:\\
+
+$
+\dfrac
+{\overbrace{X \wedge \neg Y \wedge Z \Rightarrow \neg Y \wedge \neg U, X \wedge U}^{\textbf{A}} \text{\qquad} \overbrace{X \wedge U\Rightarrow \neg Y \wedge \neg U, X \wedge U}^{\textbf{B}}}
+{(X \wedge \neg Y \wedge Z)\vee(X \wedge U)\Rightarrow \neg Y \wedge \neg U, X \wedge U}
+$\\
+
+Teilbaum \textbf{A}:\\
+
+Mit $(\wedge,\Rightarrow)$:\\
+
+$
+\dfrac
+{X , \neg Y , Z \Rightarrow \neg Y \wedge \neg U, X \wedge U}
+{X \wedge \neg Y \wedge Z \Rightarrow \neg Y \wedge \neg U, X \wedge U}
+$\\
+
+Weiter mit $(\Rightarrow, \wedge)$ und danach ebenfalls $(\Rightarrow, \wedge)$ auf das rechte Blatt. Anschließend $(\Rightarrow, \neg)$ auf das rechte Blatt:\\
+
+$
+\dfrac
+{\dfrac
+ {\dfrac{\text{Axiom}}{X , \neg Y , Z \Rightarrow \neg Y, X \wedge U} \text{\qquad} 
+  \dfrac
+  {\dfrac
+  {\text{Axiom}}
+  {X , \neg Y , Z \Rightarrow  \neg U, X}  \text{\qquad} 
+   \dfrac
+   {\dfrac
+  {\text{Axiom}}
+  {U, X , \neg Y , Z \Rightarrow U}}
+   {X , \neg Y , Z \Rightarrow  \neg U, U}}
+  {X , \neg Y , Z \Rightarrow  \neg U, X \wedge U}}
+ {X , \neg Y , Z \Rightarrow \neg Y \wedge \neg U, X \wedge U}}
+{X \wedge \neg Y \wedge Z \Rightarrow \neg Y \wedge \neg U, X \wedge U}
+$\\
+
+Teilbaum \textbf{B}:\\
+
+Wende $(\wedge,\Rightarrow)$ auf die Wurzel an. Danach $(\Rightarrow, \wedge)$ und anschließend $(\Rightarrow, \wedge)$ auf alle Blätter:\\
+
+$
+\dfrac
+{	\dfrac{ \dfrac
+  {\text{Axiom}}
+  {X , U \Rightarrow \neg Y , X} \text{\qquad} \dfrac
+  {\text{Axiom}}
+  {X , U \Rightarrow \neg Y , U}}
+	{X , U \Rightarrow \neg Y , X \wedge U} \text{\qquad} 
+	\dfrac{\dfrac
+  {\text{Axiom}}
+  {X , U \Rightarrow \neg U , X}\text{\qquad}\dfrac
+  {\text{Axiom}}
+  {X , U \Rightarrow \neg U , U}}
+	{X , U \Rightarrow  \neg U, X \wedge U}}
+{
+\dfrac
+{X , U\Rightarrow \neg Y \wedge \neg U, X \wedge U}
+{X \wedge U\Rightarrow \neg Y \wedge \neg U, X \wedge U}
+}
+$\\
+
+Da alle Blätter positiv sind, ist der Ableitungsbaum ein Beweis. Die Sequenz ist somit gültig.
 \end{adjustwidth}
 \textbf{(b)}
 \begin{adjustwidth}{20pt}{20pt}

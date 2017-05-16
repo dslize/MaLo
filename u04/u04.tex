@@ -2,6 +2,7 @@
 
 \usepackage{graphicx}
 \usepackage{forest}
+\usepackage{proof}
 \usepackage[utf8]{inputenc}
 \usepackage{fancyhdr}
 \usepackage{changepage}
@@ -135,11 +136,19 @@ Da die leere Klausel mittels P-Resolution ableitbar ist, ist $K$ unerfüllbar.
 \end{adjustwidth}
 \textbf{(c)}
 \begin{adjustwidth}{20pt}{20pt}
-
+Das P-Resolutionskalkül ist korrekt, da das Resolutionskalkül korrekt ist und die bei einer P-Resolution entstehenden Resolventen ebenfalls in der Resolution gebildet werden können.
 \end{adjustwidth}
 \textbf{(d)}
 \begin{adjustwidth}{20pt}{20pt}
-
+Der Beweis der Vollständigkeit der P-Resolution funktioniert wie der der Resolution bis
+einschließlich der Definition von $K_0^+$ und $K_0^-$. Nach Induktionsvoraussetzung lässt sich
+annehmen, dass $\Box \in \text{Res}^*(K_0^+)$ und $\Box \in \text{Res}^*(K_0^-)$, welche mittels P-Resolution abgeleitet wurden.. Betrachte nun
+$K_0^-$. Da aus $K_0^-$ alle Klauseln mit $\neg X_n$ entfernt wurden und aus den verbleibenden Klauseln alle $X_n$ gestrichen wurden, lässt sich zu allen Klauseln aus $K_0^-$ wieder
+$X_n$ hinzufügen, und dann ${X_n}$ mit P-Resolution ableiten, da ja $\Box$ ableitbar und durch hinzufügen von ${X_n}$ keine positive Klauseln negativ werden. Resolviere nun alle Klauseln
+in $K_0$, welche $\neg X_n$ enthalten, mit ${X_n}$.(Es handelt sich um P-Resolution, da ${X_n}$ positiv ist.) Die dabei entstehende Menge ist eine Obermenge von $K_0^+$, da in den Resolventen
+nun keine $\neg X_n$ enthalten sind.(Die überflüssigen Klauseln, welche in $K_0^+$ gestrichen wurden lassen sich nun ignorieren.) Nach Induktionsvoraussetzung lässt sich aber aus $K_0^+$
+ebenfalls die leere Klausel mit P-Resolution ableiten, und somit insbesondere auch aus der Obermenge. Der Rest des Beweises ist dann wieder analog zur Resolution. Somit ist die
+P-Resolution vollständig.
 \end{adjustwidth}
 
 
@@ -171,7 +180,10 @@ Da also keine falsifizierende Interpretation für die gegebene Sequenz existiert
 \end{adjustwidth}
 \textbf{(b)}
 \begin{adjustwidth}{20pt}{20pt}
-
+Sei $\varphi \in $ AL. Um die Erfüllbarkeit von $\varphi$ zu prüfen, kann man mithilfe des Sequenzenkalküls die Gültigkeit der Sequenz $\varphi \Rightarrow \O$ prüfen. Ist die Sequenz
+ungültig, so ist $\varphi$ erfüllbar, ansonsten nicht. (Denn $\varphi \Rightarrow \O$ gültig gdw. $\varphi$ unerfüllbar.)\\
+Dabei handelt es sich nicht um ein effizientes Verfahren, da bei der Anwendung einer Schlussregel aus einer Sequenz zwei zu beweisende Sequenzen entstehen können, weshalb
+die Anzahl der entstehenden Sequenzen im Worst-Case exponentiell wachsen kann, wodurch die Anzahl der benötigten Schritte ebenfalls exponentiell wächst.
 \end{adjustwidth}
 
 
@@ -181,7 +193,7 @@ Da also keine falsifizierende Interpretation für die gegebene Sequenz existiert
 \begin{adjustwidth}{20pt}{20pt}
 Die Schlussregel ist korrekt. Seien $\Gamma,\varphi \Rightarrow \Delta,\psi$ und $\Gamma,\psi \Rightarrow \Delta,\vartheta$ gültig, und sei $\mathfrak{I}$ ein Modell von
 $\Gamma, \neg \vartheta$. (Falls $\Gamma, \neg \vartheta$ unerfüllbar, gilt die zu zeigende Aussage sofort.) Insbesondere ist $\mathfrak{I}$ Modell von $\Gamma$. Betrachte
-nun zwei Fäle:
+nun zwei Fälle:
 \begin{itemize}
 \item $\mathfrak{I} \not\models \psi$. Dann ist $\Gamma, \neg \vartheta \Rightarrow \Delta, \psi \rightarrow \varphi$ gültig, da in dem Fall $\mathfrak{I}$ Modell von $\psi \rightarrow
 	\varphi$ ist.

@@ -194,13 +194,17 @@ $
 {U\vee \neg X,Z \Rightarrow Y,\neg (X \rightarrow Y)\wedge (\neg U \rightarrow Z)}
 $\\
 
-Das rechte Blatt ist nun ein Axiom. Wende $(\vee, \Rightarrow)$ auf linkes Blatt.\\
+Das rechte Blatt ist nun ein Axiom. Wende $(\rightarrow, \Rightarrow)$ auf das linke Blatt und danach $(\vee,\Rightarrow)$ auf das linke Blatt:\\
 
 $
 \dfrac
 {\dfrac{
 		\dfrac
-		{X,Z,U \Rightarrow Y \text{\qquad}  X,Z,\neg X \Rightarrow Y}
+		{\dfrac
+			{U,Z \Rightarrow X,Y \text{\qquad} \neg X,Z \Rightarrow X,Y}
+			{U\vee \neg X,Z \Rightarrow X,Y}
+		 \text{\qquad} 
+		 \dfrac{\text{Axiom}}{U\vee \neg X,Z,Y \Rightarrow Y}}
 		{U\vee \neg X,Z,X \rightarrow Y \Rightarrow Y}}
 {U\vee \neg X,Z \Rightarrow Y,\neg (X \rightarrow Y)} \text{\qquad} \dfrac
 	{	\dfrac
@@ -210,7 +214,7 @@ $
 {U\vee \neg X,Z \Rightarrow Y,\neg (X \rightarrow Y)\wedge (\neg U \rightarrow Z)}
 $\\
 
-Nun sieht man, die falsifizierende Interpretation wäre $\mathfrak{I}: X \mapsto 1, Y \mapsto 0, Z \mapsto 1, U \mapsto 1$. Daher existiert es kein Beweis für die gegebene Sequenz. Die Sequenz ist nicht gültig.\\
+Nun sieht man, die falsifizierende Interpretation wäre $\mathfrak{I}: X \mapsto 0, Y \mapsto 0, Z \mapsto 1, U \mapsto 1$. Daher existiert es kein Beweis für die gegebene Sequenz. Die Sequenz ist nicht gültig.\\
 \vspace*{35pt}
 
 \textbf{(ii)}\\

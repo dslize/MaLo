@@ -1,0 +1,165 @@
+\documentclass[11pt, a4paper]{article}
+
+\usepackage{graphicx}
+\usepackage{forest}
+\usepackage{proof}
+\usepackage[utf8]{inputenc}
+\usepackage{fancyhdr}
+\usepackage{changepage}
+\usepackage[onehalfspacing]{setspace}
+\usepackage{ragged2e}
+\usepackage{ amssymb, amsmath, amsthm, dsfont }
+\usepackage[width = 18cm, top = 2.5cm, bottom = 3cm]{geometry}
+\usepackage{extarrows}
+\usepackage{stmaryrd}
+% ---------
+
+\newcommand{\myTitleString} {}
+\newcommand{\myAuthorString} {}
+\newcommand{\mySubTitleString} {}
+\newcommand{\myDateString} {}
+
+\newcommand{\myTitle}[1] {\renewcommand {\myTitleString}{#1}}
+\newcommand{\mySubTitle}[1] {\renewcommand {\mySubTitleString}{#1}}
+\newcommand{\myAuthor}[1] {\renewcommand{\myAuthorString}		{#1}}
+\newcommand{\myDate}[1] {\renewcommand{\myDateString}{#1}}
+
+\newcommand{\makeMyTitle}
+{
+\pagestyle{fancy}
+\fancyhead[L]
+{
+\begin{tabular}{l}
+\myTitleString
+\\ \mySubTitleString 
+\\ \myDateString
+\end{tabular}
+} 			
+\fancyhead[C]{}
+\fancyhead[R]{\myAuthorString}
+\fancyfoot[C]{\thepage}
+}
+
+\setlength{\headheight}{45pt}
+
+\newcommand{\p}{7}
+\newcommand{\pp}{5}
+\newcommand{\ppp}{8}
+\newcommand{\pppp}{6} 
+
+\newcommand{\defgl}{\mathrel{=\!\!\mathop:}}
+\newcommand{\defgr}{\mathrel{\mathop:\!\!=}}
+
+\makeatletter
+\renewcommand*\env@matrix[1][*\c@MaxMatrixCols c]{%
+  \hskip -\arraycolsep
+  \let\@ifnextchar\new@ifnextchar
+  \array{#1}}
+\makeatother
+% ---------
+%\setlength{\parindent}{0pt}
+\begin{document}
+
+\myTitle{\textsc{Mathematische Logik}}
+\mySubTitle{Übung 5}
+\myDate{21. Mai 2017}
+\myAuthor
+{
+\begin{tabular}{l l}
+346532, &Daniel Boschmann\\
+348776, &Anton Beliankou	\\
+356092, &Daniel Schleiz
+\end{tabular}
+}
+\makeMyTitle
+
+\begin{tabular}{|c|c|c|c|c|}\hline
+   2 & 3 & 4 & 5 &$\sum$\\\hline
+  	 \qquad/\p & \qquad/\pp & \qquad/\ppp & \qquad/\pppp &\qquad/26\\\hline
+ \end{tabular}
+\hspace*{20pt} {\huge Gruppe \textbf{G}}
+\vspace*{30pt}
+
+
+\section*{Aufgabe 2 (Punkte:\qquad/\p)}
+\textbf{(a)}
+\begin{adjustwidth}{20pt}{20pt}
+	Es existieren die Redukte $(\mathbb{N},+,\cdot,<), (\mathbb{N},\cdot,<), (\mathbb{N},+,<), (\mathbb{N},+,\cdot,<), (\mathbb{N},+,\cdot), (\mathbb{N},<),
+	(\mathbb{N},+), (\mathbb{N},\cdot)$ und $(\mathbb{N})$.
+\end{adjustwidth}
+\textbf{(b)}
+\begin{adjustwidth}{20pt}{20pt}
+	Für $n \subseteq \mathbb{N}$ und $n \neq \emptyset$ ist $\mathfrak{N}_n=(n,\leq)$ eine Substruktur von $\mathfrak{N}_1$, da sich jede Teilmenge der natürlichen Zahlen	
+	auf die selbe Weise ordnen lässt. \\
+	Sei $n \subseteq \mathbb{N}$, $n \neq \emptyset$ und sei $N_n=\{ 2^i \cdot m\ |\ m \in n, i \in \mathbb{N}\}$. Dann ist $\mathfrak{N}_{N_n}=(N_n, f)$ eine Substruktur
+	von $\mathfrak{N}_2$, da man alle Elemente in $n$ um die Vielfachen mit allen Zweierpotenzen erweitern muss, da die Substruktur sonst nicht $\{ f \}$-abgeschlossen wäre.
+\end{adjustwidth}
+\textbf{(c)}
+\begin{adjustwidth}{20pt}{20pt}
+	$(\mathbb{Z}/3\mathbb{Z},+)$ besitzt die Substrukturen $(\mathbb{Z}/2\mathbb{Z},+)$ und $(\mathbb{Z}/1\mathbb{Z},+)=\{ 0 \}$, sich die Addition modulo problemlos
+	einschränken lässt. (Für $(\mathbb{Z}/1\mathbb{Z},+)$ klar, da $0+0=0\in (\mathbb{Z}/1\mathbb{Z},+)$, für $(\mathbb{Z}/2\mathbb{Z},+)$ auch klar, bis auf
+	$1+1=2 \equiv_2 0 \in (\mathbb{Z}/2\mathbb{Z},+)$, also doch abegschlossen.) \\
+	$(\mathbb{Z}/4\mathbb{Z},+)$ besitzt die Substrukturen $(\mathbb{Z}/2\mathbb{Z},+)$ und $(\mathbb{Z}/1\mathbb{Z},+)$ (aus analogen Gründen zu vorher), nicht aber
+	$(\mathbb{Z}/3\mathbb{Z},+)$. (Betrachte bei der Einschränkung des Definitionsbereichs auf $(\mathbb{Z}/3\mathbb{Z},+)$, nach Vorschrift von $(\mathbb{Z}/4\mathbb{Z},+)$:
+	$2+2=0 \not\equiv_3 1$.)
+\end{adjustwidth}
+
+
+
+
+\section*{Aufgabe 3 (Punkte:\qquad/\pp)}
+\textbf{(a)}
+\begin{adjustwidth}{20pt}{20pt}
+	Die Aussage des Satzes ist, dass ein Knoten $x$ existiert, welcher nicht inzident zu einer Kante ist. Die Aussage trifft nur auf $\mathcal{G}_2$, der Knoten oben links ist isoliert.
+\end{adjustwidth}
+\textbf{(b)}
+\begin{adjustwidth}{20pt}{20pt}
+	Die Aussage des Satzes ist, dass ein Knoten $x$ existiert, welcher über eine Kante mit zwei anderen, verschiedenen, Knoten $y,z$ verbunden ist. Dies trifft auf die Graphen
+	 $\mathcal{G}_1$ ($x$ ist Knoten oben links) und  $\mathcal{G}_4$ ($x$ ist z.B. der Knoten unten rechts) zu. Der Satz gilt für die restlichen Graphen nicht, da dessen Knoten
+	höchstens Grad 1 haben und somit nicht zu mind. zwei anderen adjazent sind.
+\end{adjustwidth}
+\textbf{(c)}
+\begin{adjustwidth}{20pt}{20pt}
+	Die Aussage des Satzes ist, dass im Graphen zwei verschiedene Knoten stets durch eine Kante verbunden sein sollen. (Das "$\exists(...)$" ist redundant, da innerhalb der Klammern
+	$Exy$ nochmal in einer Konjunktion auftritt.) Dies trifft nur auf den Graphen  $\mathcal{G}_3$, da in allen anderen graphen Knoten existieren, welche nicht adjazent zueinander sind.
+\end{adjustwidth}
+
+
+
+\section*{Aufgabe 4 (Punkte:\qquad/\ppp)}
+\textbf{(a)}
+\begin{adjustwidth}{20pt}{20pt}
+	$\varphi_a \defgr \exists x(a \cdot x = b)$
+\end{adjustwidth}
+\textbf{(b)}
+\begin{adjustwidth}{20pt}{20pt}
+	$\varphi_b \defgr \neg\exists x \neg\exists y(x \neq 1 \wedge y \neq 1 \wedge x \cdot y = a) \wedge a \neq 1$
+\end{adjustwidth}
+\textbf{(c)}
+\begin{adjustwidth}{20pt}{20pt}
+	$\varphi_c \defgr $
+\end{adjustwidth}
+\textbf{(d)}
+\begin{adjustwidth}{20pt}{20pt}
+	$\varphi_d \defgr $
+\end{adjustwidth}
+\textbf{(e)}
+\begin{adjustwidth}{20pt}{20pt}
+	$\varphi_e \defgr $
+\end{adjustwidth}
+
+
+
+\section*{Aufgabe 5 (Punkte:\qquad/\pppp)}
+\textbf{(a)}
+\begin{adjustwidth}{20pt}{20pt}
+	
+\end{adjustwidth}
+\textbf{(b)}
+\begin{adjustwidth}{20pt}{20pt}
+	
+\end{adjustwidth}
+
+
+
+\end{document}

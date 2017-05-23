@@ -84,7 +84,7 @@
 \section*{Aufgabe 2 (Punkte:\qquad/\p)}
 \textbf{(a)}
 \begin{adjustwidth}{20pt}{20pt}
-	Es existieren die Redukte $(\mathbb{N},+,\cdot,<), (\mathbb{N},\cdot,<), (\mathbb{N},+,<), (\mathbb{N},+,\cdot,<), (\mathbb{N},+,\cdot), (\mathbb{N},<),
+	Es existieren die Redukte $(\mathbb{N},+,\cdot,<), (\mathbb{N},\cdot,<), (\mathbb{N},+,<), (\mathbb{N},+,\cdot), (\mathbb{N},<),
 	(\mathbb{N},+), (\mathbb{N},\cdot)$ und $(\mathbb{N})$.
 \end{adjustwidth}
 \textbf{(b)}
@@ -96,12 +96,9 @@
 \end{adjustwidth}
 \textbf{(c)}
 \begin{adjustwidth}{20pt}{20pt}
-	$(\mathbb{Z}/3\mathbb{Z},+)$ besitzt die Substrukturen $(\mathbb{Z}/2\mathbb{Z},+)$ und $(\mathbb{Z}/1\mathbb{Z},+)=\{ 0 \}$, sich die Addition modulo problemlos
-	einschränken lässt. (Für $(\mathbb{Z}/1\mathbb{Z},+)$ klar, da $0+0=0\in (\mathbb{Z}/1\mathbb{Z},+)$, für $(\mathbb{Z}/2\mathbb{Z},+)$ auch klar, bis auf
-	$1+1=2 \equiv_2 0 \in (\mathbb{Z}/2\mathbb{Z},+)$, also doch abegschlossen.) \\
-	$(\mathbb{Z}/4\mathbb{Z},+)$ besitzt die Substrukturen $(\mathbb{Z}/2\mathbb{Z},+)$ und $(\mathbb{Z}/1\mathbb{Z},+)$ (aus analogen Gründen zu vorher), nicht aber
-	$(\mathbb{Z}/3\mathbb{Z},+)$. (Betrachte bei der Einschränkung des Definitionsbereichs auf $(\mathbb{Z}/3\mathbb{Z},+)$, nach Vorschrift von $(\mathbb{Z}/4\mathbb{Z},+)$:
-	$2+2=0 \not\equiv_3 1$.)
+	$(\mathbb{Z}/3\mathbb{Z},+)$ besitzt die Substrukturen $\{0\}$ und $\{ 0,1,2 \}$, da $\{ 0,1 \}$ mit der Addition modulo 3 nicht abgeschlossen ist (1+1=2 liegt nicht in der Menge). \\
+	$(\mathbb{Z}/4\mathbb{Z},+)$ besitzt die Substrukturen $\{0\}$ und $\{ 0,1,2,3 \}$ und $\{ 0,2 \}$. ($\{ 0,1\}$ nicht abgeschlossen wie vorher begründet, $\{ 0,1,2\}$ ebenfalls
+	nicht, da $1+2=3$, $\{ 0,1,3\}$ nicht da $1+1=2$, $\{ 0,2\}$ und $\{ 0,3\}$ analog auch nicht.)
 \end{adjustwidth}
 
 
@@ -120,32 +117,33 @@
 \end{adjustwidth}
 \textbf{(c)}
 \begin{adjustwidth}{20pt}{20pt}
-	Die Aussage des Satzes ist, dass im Graphen zwei verschiedene Knoten stets durch eine Kante verbunden sein sollen. (Das "$\exists(...)$" ist redundant, da innerhalb der Klammern
+	Die Aussage des Satzes ist, dass im Graphen zwei verschiedene Knoten stets durch eine Kante verbunden sein sollen. (Das "$\exists z(...)$" ist redundant, da innerhalb der Klammern
 	$Exy$ nochmal in einer Konjunktion auftritt.) Dies trifft nur auf den Graphen  $\mathcal{G}_3$, da in allen anderen graphen Knoten existieren, welche nicht adjazent zueinander sind.
 \end{adjustwidth}
 
 
 
 \section*{Aufgabe 4 (Punkte:\qquad/\ppp)}
-\textbf{(a)}
+Im Index der Bezeichnung der Formel stehen die freien Variablen, die Potenz steht für den Aufgabenteil.\newpage
+\noindent\textbf{(a)}
 \begin{adjustwidth}{20pt}{20pt}
-	$\varphi_a \defgr \exists x(a \cdot x = b)$
+	$\varphi_{ab}^1 \defgr \exists x(a \cdot x = b)$
 \end{adjustwidth}
 \textbf{(b)}
 \begin{adjustwidth}{20pt}{20pt}
-	$\varphi_b \defgr \neg\exists x \neg\exists y(x \neq 1 \wedge y \neq 1 \wedge x \cdot y = a) \wedge a \neq 1$
+	$\varphi_a^2 \defgr \neg\exists x \neg\exists y(x \neq 1 \wedge y \neq 1 \wedge x \cdot y = a) \wedge a \neq 1$
 \end{adjustwidth}
 \textbf{(c)}
 \begin{adjustwidth}{20pt}{20pt}
-	$\varphi_c \defgr $
+	$\varphi_{ab}^3 \defgr \neg\exists n \neg\exists c \neg\exists d(n \cdot c = a \wedge n \cdot d = b)$
 \end{adjustwidth}
 \textbf{(d)}
 \begin{adjustwidth}{20pt}{20pt}
-	$\varphi_d \defgr $
+	$\varphi_a^4 \defgr $
 \end{adjustwidth}
 \textbf{(e)}
 \begin{adjustwidth}{20pt}{20pt}
-	$\varphi_e \defgr $
+	$\varphi_{ab}^5 \defgr $
 \end{adjustwidth}
 
 
@@ -153,11 +151,38 @@
 \section*{Aufgabe 5 (Punkte:\qquad/\pppp)}
 \textbf{(a)}
 \begin{adjustwidth}{20pt}{20pt}
-	
+	Betrachte für den Induktionsanfang einen Term $t$, welcher nur aus einer Variable $x$ besteht. Dann gilt
+	\[
+	\llbracket t \rrbracket^{(\mathfrak{A},\beta)} =
+	\llbracket x \rrbracket^{(\mathfrak{A},\beta)} = \beta(x) = \llbracket x \rrbracket^{(\mathfrak{B},\beta)} = \llbracket t \rrbracket^{(\mathfrak{B},\beta)}.
+	\]
+	Seien nun für den Induktionsschritt $t_1,...,t_n$ Terme für die die Aussage gilt und sei $f$ ein $n-$stelliges Funktionssymbol aus $\mathfrak{A}$ bzw. $\mathfrak{B}$. (Gleiche Signatur, da
+	$\mathfrak{A}$ eine Substruktur.) Dann gilt
+	\begin{align*}
+	\llbracket ft_1...t_n \rrbracket^{(\mathfrak{A},\beta)} = f^{\mathfrak{A}}(\llbracket t_1 \rrbracket^{(\mathfrak{A},\beta)},...,\llbracket t_n\rrbracket^{(\mathfrak{A},\beta)})
+	& \overset{IV}{=} f^{\mathfrak{A}}(\llbracket t_1 \rrbracket^{(\mathfrak{B},\beta)},...,\llbracket t_n\rrbracket^{(\mathfrak{B},\beta)}) \\
+	& \overset{Def.}{=} f^{\mathfrak{B}}|_A(\llbracket t_1 \rrbracket^{(\mathfrak{B},\beta)},...,\llbracket t_n\rrbracket^{(\mathfrak{B},\beta)}) \\
+	& = f^{\mathfrak{B}}(\llbracket t_1 \rrbracket^{(\mathfrak{B},\beta)},...,\llbracket t_n\rrbracket^{(\mathfrak{B},\beta)}) \\
+	& = \llbracket ft_1...t_n \rrbracket^{(\mathfrak{B},\beta)}.
+	\end{align*}
 \end{adjustwidth}
 \textbf{(b)}
 \begin{adjustwidth}{20pt}{20pt}
-	
+	Sei $\mathfrak{A}$ eine Substruktur von $\mathfrak{B}$ und seien $a_1,...,a_k$ aus dem Universum von $\mathfrak{A}$. Zeige die Aussage induktiv über den Aufbau von FO Formeln.\\
+	\textit{Induktionsanfang:} Seien Terme $t_i$ mit höchstens den Variablen $a_1,...,a_k$ aus dem Universum von $\mathfrak{A}$.
+	\begin{itemize}
+	\item Sei $\varphi=(t_1=t_2)$. Dann gilt $\mathfrak{A} \models \varphi \Leftrightarrow \llbracket t_1 \rrbracket^\mathfrak{A} = \llbracket t_2 \rrbracket^\mathfrak{A}
+			\overset{(a)}{\Leftrightarrow} \llbracket t_1 \rrbracket^\mathfrak{B} = \llbracket t_2 \rrbracket^\mathfrak{B} \Leftrightarrow \mathfrak{B} \models \varphi$.
+	\item Sei $\varphi=(Pt_1...t_n)$, wobei $P$ ein m-stelliges Relationssymbol aus $\mathfrak{A}$ (und somit aus $\mathfrak{B}$, da eine Substruktur die selbe Signatur hat.)\\
+		Dann gilt $\mathfrak{A} \models \varphi \Leftrightarrow (\llbracket t_1 \rrbracket^\mathfrak{A},...,\llbracket t_n \rrbracket^\mathfrak{A}) \in P^{\mathfrak{A}}
+		\overset{Def}{\Leftrightarrow} (\llbracket t_1 \rrbracket^\mathfrak{A},...,\llbracket t_n \rrbracket^\mathfrak{A}) \in P^{\mathfrak{B}} \cap A^m \Leftrightarrow 
+		(\llbracket t_1 \rrbracket^\mathfrak{A},...,\llbracket t_n \rrbracket^\mathfrak{A}) \in P^{\mathfrak{B}}$, da $a_1,...,a_k$ aus dem Universum von $\mathfrak{A}$.
+	\end{itemize}
+	\textit{Induktionsschritt:} Die Behauptung gelte für Formeln $\psi, \varphi$, dessen Terme höchstens Variablen $a_1,...,a_k$ aus dem Universum von $\mathfrak{A}$.
+	\begin{itemize}
+	\item 
+	\item 
+	\end{itemize}
 \end{adjustwidth}
 
 

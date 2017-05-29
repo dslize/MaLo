@@ -1,0 +1,166 @@
+\documentclass[11pt, a4paper]{article}
+
+\usepackage{graphicx}
+\usepackage{forest}
+\usepackage{proof}
+\usepackage[utf8]{inputenc}
+\usepackage{fancyhdr}
+\usepackage{changepage}
+\usepackage[onehalfspacing]{setspace}
+\usepackage{ragged2e}
+\usepackage{ amssymb, amsmath, amsthm, dsfont }
+\usepackage[width = 18cm, top = 2.5cm, bottom = 3cm]{geometry}
+\usepackage{extarrows}
+\usepackage{stmaryrd}
+% ---------
+
+\newcommand{\myTitleString} {}
+\newcommand{\myAuthorString} {}
+\newcommand{\mySubTitleString} {}
+\newcommand{\myDateString} {}
+
+\newcommand{\myTitle}[1] {\renewcommand {\myTitleString}{#1}}
+\newcommand{\mySubTitle}[1] {\renewcommand {\mySubTitleString}{#1}}
+\newcommand{\myAuthor}[1] {\renewcommand{\myAuthorString}		{#1}}
+\newcommand{\myDate}[1] {\renewcommand{\myDateString}{#1}}
+
+\newcommand{\makeMyTitle}
+{
+\pagestyle{fancy}
+\fancyhead[L]
+{
+\begin{tabular}{l}
+\myTitleString
+\\ \mySubTitleString 
+\\ \myDateString
+\end{tabular}
+} 			
+\fancyhead[C]{}
+\fancyhead[R]{\myAuthorString}
+\fancyfoot[C]{\thepage}
+}
+
+\setlength{\headheight}{45pt}
+
+\newcommand{\p}{14}
+\newcommand{\pp}{3}
+\newcommand{\ppp}{7}
+\newcommand{\pppp}{6} 
+
+\newcommand{\defgl}{\mathrel{=\!\!\mathop:}}
+\newcommand{\defgr}{\mathrel{\mathop:\!\!=}}
+
+\makeatletter
+\renewcommand*\env@matrix[1][*\c@MaxMatrixCols c]{%
+  \hskip -\arraycolsep
+  \let\@ifnextchar\new@ifnextchar
+  \array{#1}}
+\makeatother
+% ---------
+%\setlength{\parindent}{0pt}
+\begin{document}
+
+\myTitle{\textsc{Mathematische Logik}}
+\mySubTitle{Übung 6}
+\myDate{29. Mai 2017}
+\myAuthor
+{
+\begin{tabular}{l l}
+346532, &Daniel Boschmann\\
+348776, &Anton Beliankou	\\
+356092, &Daniel Schleiz
+\end{tabular}
+}
+\makeMyTitle
+
+\begin{tabular}{|c|c|c|c|c|}\hline
+   2 & 3 & 4 & 5 &$\sum$\\\hline
+  	 \qquad/\p & \qquad/\pp & \qquad/\ppp & \qquad/\pppp &\qquad/30\\\hline
+ \end{tabular}
+\hspace*{20pt} {\huge Gruppe \textbf{G}}
+\vspace*{30pt}
+
+
+\section*{Aufgabe 2 (Punkte:\qquad/\p)}
+\textbf{(a)}
+\begin{adjustwidth}{20pt}{20pt}
+	$\Phi_{\mathcal{K}_1} \defgr \{\forall x(Sx \rightarrow \exists y(Ty \wedge Rxy \wedge \forall z(Tz \wedge Rxz \rightarrow y=z))),
+	\forall x\forall y\forall z(Rxz \wedge Ryz \rightarrow x=z), \forall y(Ty \rightarrow \exists x(Sx \wedge Rxy))\}$
+\end{adjustwidth}
+\textbf{(b)}
+\begin{adjustwidth}{20pt}{20pt}
+	Definiere $\varphi_n \defgr \exists x_1...\exists x_n\left(\bigwedge_{i=1,...,n}(\exists y(fx_i = y)) \wedge \bigwedge_{1\leq i \leq j \leq n}x_i \neq x_j\right)$.\\ Dann ist
+	$\Phi_{\mathcal{K}_2} \defgr \{ \varphi_n\ |\ n \in \mathbb{N}\}$
+\end{adjustwidth}
+\textbf{(c)}
+\begin{adjustwidth}{20pt}{20pt}
+	Definiere $\psi_n \defgr \exists x_1,...,\exists x_n(\bigwedge_{i=1,...,n-1}(Rx_ix_{i+1}) \wedge Rx_nx_1)$. Dies ist erfüllt, wenn ein Kreis der Länge $n$ existiert.
+	Dann ist das gesuchte Axiomensystem gegeben durch:\\
+	$\Phi_{\mathcal{K}_3} \defgr \{ \neg\varphi_n\ |\ n \in \mathbb{N}\}$. (Nach Skript sind für gerichteten Graphen Schlingen erlaubt.)
+\end{adjustwidth}
+\textbf{(d)}
+\begin{adjustwidth}{20pt}{20pt}
+	
+\end{adjustwidth}
+\textbf{(e)}
+\begin{adjustwidth}{20pt}{20pt}
+	$\Phi_{\mathcal{K}_5} \defgr \{\forall a(\neg Raa), \forall a\forall b \forall c(Rab \wedge Rbc \rightarrow Rac), \forall a \forall b(Rab \vee a=b \vee Rba), \forall x(Rxfx)\}$
+\end{adjustwidth}
+\textbf{(f)}
+\begin{adjustwidth}{20pt}{20pt}
+	$\Phi_{\mathcal{K}_6} \defgr \{ \}$
+\end{adjustwidth}
+\textbf{(g)}
+\begin{adjustwidth}{20pt}{20pt}
+	$\Phi_{\mathcal{K}_7} \defgr \{ \}$
+\end{adjustwidth}
+
+
+
+
+\section*{Aufgabe 3 (Punkte:\qquad/\pp)}
+\textbf{(a)}
+\begin{adjustwidth}{20pt}{20pt}
+	
+\end{adjustwidth}
+
+
+
+
+\section*{Aufgabe 4 (Punkte:\qquad/\ppp)}
+\textbf{(a)}
+\begin{adjustwidth}{20pt}{20pt}
+
+\end{adjustwidth}
+\textbf{(b)}
+\begin{adjustwidth}{20pt}{20pt}
+
+\end{adjustwidth}
+\textbf{(c)}
+\begin{adjustwidth}{20pt}{20pt}
+
+\end{adjustwidth}
+\textbf{(d)}
+\begin{adjustwidth}{20pt}{20pt}
+
+\end{adjustwidth}
+\textbf{(e)}
+\begin{adjustwidth}{20pt}{20pt}
+
+\end{adjustwidth}
+
+
+
+\section*{Aufgabe 5 (Punkte:\qquad/\pppp)}
+\textbf{(a)}
+\begin{adjustwidth}{20pt}{20pt}
+	
+\end{adjustwidth}
+\textbf{(b)}
+\begin{adjustwidth}{20pt}{20pt}
+	
+\end{adjustwidth}
+
+
+
+\end{document}

@@ -90,9 +90,11 @@
 \textbf{(b)}
 \begin{adjustwidth}{20pt}{20pt}
 	Für $n \subseteq \mathbb{N}$ und $n \neq \emptyset$ ist $\mathfrak{N}_n=(n,\leq)$ eine Substruktur von $\mathfrak{N}_1$, da sich jede Teilmenge der natürlichen Zahlen	
-	auf die selbe Weise ordnen lässt. \\
-	Sei $n \subseteq \mathbb{N}$, $n \neq \emptyset$ und sei $N_2=\{ 2^i \cdot m\ |\ m \in n, i \in \mathbb{N}\}$ sowie $N_k=\{ \mathds{N}\backslash Q \ | \ Q = \{0,..,k\}, \ k \in \mathds{N}\}$ die Teilmengen von $\mathds{N}$ ohne Anfangselemente $0$ bis $k$. Ferner sei $N_n \defgr N_2 \ \cup \ N_k$. Dann ist $\mathfrak{N}_{N_n}=(N_n, f)$ eine Substruktur
-	von $\mathfrak{N}_2$, da man alle Elemente in $n$ um die Vielfachen mit allen Zweierpotenzen erweitern muss, da die Substruktur sonst nicht $\{ f \}$-abgeschlossen wäre.
+	auf die selbe Weise ordnen lässt. Dies sind alle möglichen Substrukturen.\\
+	Sei $n \subseteq \mathbb{N}$, $n \neq \emptyset$ und sei $N_n=\{ 2^i \cdot m\ |\ m \in n, i \in \mathbb{N}\}$ sowie $N_k=\{ \mathbb{N}\backslash Q \ | \ Q = \{0,..,k\}, \ k \in \mathbb{N}\}$ die Teilmengen von $\mathbb{N}$ ohne Anfangselemente $0$ bis $k$. Ferner sei $N_{nk} \defgr N_2 \ \cup \ N_k$. Dann ist $\mathfrak{N}_{N_n}=(N_n, f)$ eine Substruktur
+	von $\mathfrak{N}_2$, da man alle Elemente in $n$ um die Vielfachen mit allen Zweierpotenzen erweitern muss, da die Substruktur sonst nicht $\{ f \}$-abgeschlossen wäre. Ebenfalls ist $\mathfrak{N}_{N_{nk}}=(N_n, f)$
+	eine Substruktur, da man ab einem gewissen $k$ auch alle Elemente der natürlichen Zahlen nehmen kann, die größer als $k$ sind. Für beliebige $k\in \mathbb{N}$ und $n \subseteq \mathbb{N}$, $n \neq \emptyset$
+	sind dies alle möglichen Substrukturen.
 \end{adjustwidth}
 \textbf{(c)}
 \begin{adjustwidth}{20pt}{20pt}
@@ -124,8 +126,7 @@
 
 
 \section*{Aufgabe 4 (Punkte:\qquad/\ppp)}
-Im Index der Bezeichnung der Formel stehen die freien Variablen, die Potenz steht für den Aufgabenteil.\newpage
-\noindent\textbf{(a)}
+\textbf{(a)}
 \begin{adjustwidth}{20pt}{20pt}
 	$\varphi_{a}(a,b) \defgr \exists x(a \cdot x = b)$
 \end{adjustwidth}
@@ -139,7 +140,7 @@ Im Index der Bezeichnung der Formel stehen die freien Variablen, die Potenz steh
 \end{adjustwidth}
 \textbf{(d)}
 \begin{adjustwidth}{20pt}{20pt}
-	$\varphi_{d}(a) \defgr a=1 \vee \forall x (\varphi_a(x,a) \wedge \varphi_b(x)) \rightarrow 1+1=x$
+	$\varphi_{d}(a) \defgr (a=1) \vee \forall x (\varphi_a(x,a) \wedge \varphi_b(x) \rightarrow 1+1=x)$
 \end{adjustwidth}
 \textbf{(e)}
 \begin{adjustwidth}{20pt}{20pt}
@@ -174,15 +175,25 @@ Im Index der Bezeichnung der Formel stehen die freien Variablen, die Potenz steh
 	\item Sei $\varphi=(t_1=t_2)$. Dann gilt $\mathfrak{A} \models \varphi \Leftrightarrow \llbracket t_1 \rrbracket^\mathfrak{A} = \llbracket t_2 \rrbracket^\mathfrak{A}
 			\overset{(a)}{\Leftrightarrow} \llbracket t_1 \rrbracket^\mathfrak{B} = \llbracket t_2 \rrbracket^\mathfrak{B} \Leftrightarrow \mathfrak{B} \models \varphi$.
 	\item Sei $\varphi=(Pt_1...t_n)$, wobei $P$ ein m-stelliges Relationssymbol aus $\mathfrak{A}$ (und somit aus $\mathfrak{B}$, da eine Substruktur die selbe Signatur hat.)\\
-		Dann gilt $\mathfrak{A} \models \varphi \Leftrightarrow (\llbracket t_1 \rrbracket^\mathfrak{A},...,\llbracket t_n \rrbracket^\mathfrak{A}) \in P^{\mathfrak{A}}
-		\overset{Def}{\Leftrightarrow} (\llbracket t_1 \rrbracket^\mathfrak{A},...,\llbracket t_n \rrbracket^\mathfrak{A}) \in P^{\mathfrak{B}} \cap A^m \Leftrightarrow 
-		(\llbracket t_1 \rrbracket^\mathfrak{A},...,\llbracket t_n \rrbracket^\mathfrak{A}) \in P^{\mathfrak{B}}$, da $a_1,...,a_k$ aus dem Universum von $\mathfrak{A}$.
+		Dann gilt $ \mathfrak{A} \models \varphi  \Leftrightarrow (\llbracket t_1 \rrbracket^\mathfrak{A},...,\llbracket t_n \rrbracket^\mathfrak{A}) \in P^{\mathfrak{A}}
+		\overset{Def}{\Leftrightarrow} (\llbracket t_1 \rrbracket^\mathfrak{A},...,\llbracket t_n \rrbracket^\mathfrak{A}) \in P^{\mathfrak{B}} \cap A^m  \overset{(*)}{\Leftrightarrow } 
+		(\llbracket t_1 \rrbracket^\mathfrak{A},...,\llbracket t_n \rrbracket^\mathfrak{A}) \in P^{\mathfrak{B}} \overset{(a)}{\Leftrightarrow }
+		(\llbracket t_1 \rrbracket^\mathfrak{B},...,\llbracket t_n \rrbracket^\mathfrak{B}) \in P^{\mathfrak{B}} \Leftrightarrow \mathfrak{B} \models \varphi$
+		[(*) Da $a_1,...,a_k$ aus dem Universum von $\mathfrak{A}$].
 	\end{itemize}
-	\textit{Induktionsschritt:} Die Behauptung gelte für Formeln $\psi, \varphi$, dessen Terme höchstens Variablen $a_1,...,a_k$ aus dem Universum von $\mathfrak{A}$.
+	\textit{Induktionsschritt:} Die Behauptung gelte für Formeln $\psi, \varphi$, dessen Terme höchstens Variablen $a_1,...,a_k$ aus dem Universum von $\mathfrak{A}$ enthalten.
 	\begin{itemize}
-	\item 
-	\item 
+	\item $\mathfrak{A} \models \neg\varphi \Leftrightarrow \mathfrak{A} \not\models \varphi \overset{IV}{\Leftrightarrow} \mathfrak{B} \not\models \varphi \Leftrightarrow
+		\mathfrak{B} \models \neg\varphi $
+	\item $\mathfrak{A} \models (\varphi \vee \psi) \Leftrightarrow \mathfrak{A} \models \varphi \vee \mathfrak{A} \models \psi \overset{IV}{\Leftrightarrow}
+		\mathfrak{B} \models \varphi \vee \mathfrak{B} \models \psi \Leftrightarrow \mathfrak{B} \models (\varphi \vee \psi)$
+	\item $\mathfrak{A} \models (\varphi \wedge \psi) \Leftrightarrow \mathfrak{A} \models \varphi \wedge \mathfrak{A} \models \psi \overset{IV}{\Leftrightarrow}
+		\mathfrak{B} \models \varphi \wedge \mathfrak{B} \models \psi \Leftrightarrow \mathfrak{B} \models (\varphi \wedge \psi)$
+	\item $\mathfrak{A} \models (\varphi \rightarrow \psi) \Leftrightarrow \mathfrak{A} \not\models \varphi \vee \mathfrak{A} \models \psi \overset{IV}{\Leftrightarrow}
+		\mathfrak{B} \not\models \varphi \vee \mathfrak{B} \models \psi \Leftrightarrow \mathfrak{B} \models (\varphi \rightarrow \psi)$
 	\end{itemize}
+Somit ist die Aussage für beliebige quantorenfreie FO-Formeln gezeigt. Es folgt insbesondere, da die Substruktur $\mathfrak{A}$ beliebig gewählt war, dass jede Substruktur von
+$\mathfrak{B}$ die gleichen quantorenfreien Sätze erfüllt, da dies gerade die Rückrichtung der gezeigten Aussage ist.
 \end{adjustwidth}
 
 

@@ -153,14 +153,22 @@
 
 \section*{Aufgabe 5 (Punkte:\qquad/\pppp)}
 \textbf{(a)}
-\begin{adjustwidth}{20pt}{20pt}
-	
-\end{adjustwidth}
+	\begin{align*}
+	\varphi &= \forall x \forall y \forall z(Rxy \wedge Ryz \wedge \neg Rzx) \rightarrow (\forall xPx \rightarrow \exists x \forall y\neg(Rxy \wedge Rcx)) \\
+		&\equiv \neg(\forall x \forall y \forall z(Rxy \wedge Ryz \wedge \neg Rzx)) \vee (\neg(\forall xPx) \vee \exists x \forall y\neg(Rxy \wedge Rcx)) \\
+		&\equiv \exists x \exists y \exists z(\neg Rxy \vee \neg Ryz \vee Rzx) \vee (\neg(\forall xPx) \vee \exists x \forall y\neg(Rxy \wedge Rcx)) \\
+		&\equiv \exists x \exists y \exists z(\neg Rxy \vee \neg Ryz \vee Rzx) \vee (\exists x\neg Px \vee \exists x \forall y(\neg Rxy \vee \neg Rcx)) \hfill &&[NNF]\\
+		&\equiv \exists x_1 \exists x_2 \exists x_3(\neg Rx_1x_2 \vee \neg Rx_2x_3 \vee Rx_3x_1) \vee (\exists x_4\neg Px_4 \vee \exists x_5 \forall x_6(\neg Rx_5x_6 \vee \neg Rcx_5)) \\
+		&\equiv \exists x_1 \exists x_2 \exists x_3 \exists x_4 \exists x_5 \forall x_6(\neg Rx_1x_2 \vee \neg Rx_2x_3 \vee Rx_3x_1 \vee \neg Px_4 \vee \neg Rx_5x_6 \vee \neg Rcx_5) \hfill &&[PNF]
+	\end{align*}
 \textbf{(b)}
-\begin{adjustwidth}{20pt}{20pt}
-	
-\end{adjustwidth}
-
-
+	\begin{align*}
+	\psi &= \exists yRxy \leftrightarrow \forall xRxx  \\
+		&\equiv (\exists yRxy \rightarrow \forall xRxx) \wedge (\forall xRxx \rightarrow \exists yRxy)\\
+		&\equiv (\neg\exists yRxy \vee \forall xRxx) \wedge (\neg\forall xRxx \vee \exists yRxy)\\
+		&\equiv (\forall y\neg Rxy \vee \forall xRxx) \wedge (\exists x\neg Rxx \vee \exists yRxy) \hfill &&[NNF]\\
+		&\equiv (\forall x_1\neg Rxx_1 \vee \forall x_2Rx_2x_2) \wedge (\exists x_3\neg Rx_3x_3 \vee \exists x_4Rxx_4) \\
+		&\equiv \forall x_1 \forall x_2 \exists x_3 \exists x_4((\neg Rxx_1 \vee Rx_2x_2) \wedge (\neg Rx_3x_3 \vee Rxx_4)) \hfill &&[PNF]
+	\end{align*}
 
 \end{document}

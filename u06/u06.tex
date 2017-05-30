@@ -96,11 +96,13 @@
 \begin{adjustwidth}{20pt}{20pt}
 	Definiere $\psi_n \defgr \exists x_1,...,\exists x_n(\bigwedge_{i=1,...,n-1}(Rx_ix_{i+1}) \wedge Rx_nx_1)$. Dies ist erfüllt, wenn ein Kreis der Länge $n$ existiert.
 	Dann ist das gesuchte Axiomensystem gegeben durch:\\
-	$\Phi_{\mathcal{K}_3} \defgr \{ \neg\varphi_n\ |\ n \in \mathbb{N}\}$. (Nach Skript sind für gerichteten Graphen Schlingen erlaubt.)
+	$\Phi_{\mathcal{K}_3} \defgr \{ \neg\psi_n\ |\ n \in \mathbb{N}\}$. (Nach Skript sind für gerichteten Graphen Schlingen erlaubt.)
 \end{adjustwidth}
 \textbf{(d)}
 \begin{adjustwidth}{20pt}{20pt}
-	$\Phi_{\mathcal{K}_4} \defgr \{ \forall x_0 \dotsc \forall x_n \left ( x_0 \wedge Sx_n = f(x_n) \rightarrow \left(\bigvee\limits_{i < n} \neg Rx_ix_{i+1} \right) \right ) \}$
+	%$\Phi_{\mathcal{K}_4} \defgr \{ \forall x_0 \dotsc \forall x_n \left ( x_0 \wedge Sx_n = f(x_n) \rightarrow \left(\bigvee\limits_{i < n} \neg Rx_ix_{i+1} \right) \right ) \}$
+	Definiere $\varphi_n \defgr \exists x_1,...\exists x_n(\bigwedge_{i=1,...,n-1}(Rx_ix_{i+1} \wedge x_n=fx_1 \wedge Sx_1))$. (Es ex. ein Pfad der Länge $n$ von einem $s\in S$ zu $f(s)$). \\
+	$\Phi_{\mathcal{K}_4} \defgr \{ \varphi_n\ |\ n \in \mathbb{N}\}$
 \end{adjustwidth}
 \textbf{(e)}
 \begin{adjustwidth}{20pt}{20pt}
@@ -108,11 +110,14 @@
 \end{adjustwidth}
 \textbf{(f)}
 \begin{adjustwidth}{20pt}{20pt}
-	$\Phi_{\mathcal{K}_6} \defgr \{ \forall x (Tx \rightarrow \exists y (Ty \wedge fy=x))\}$
+	%$\Phi_{\mathcal{K}_6} \defgr \{ \forall x (Tx \rightarrow \exists y (Ty \wedge fy=x))\}$
+	Definiere $\psi_n \defgr \forall x(Tx \rightarrow(\exists y(Ty \wedge f^n=x)))$. (Für ein festes $n$ ist dies eine FO-Formeln, $f^n$ als Kurzschreibweise.) \\
+	$\Phi_{\mathcal{K}_6} \defgr \{ \psi_n\ |\ n \in \mathbb{N}\}$
 \end{adjustwidth}
 \textbf{(g)}
 \begin{adjustwidth}{20pt}{20pt}
-	$\Phi_{\mathcal{K}_7} \defgr \{ \forall x \forall y (Rxy \rightarrow \exists z (Sz \wedge fz=x \wedge Ty))\}$
+	%$\Phi_{\mathcal{K}_7} \defgr \{ \forall x \forall y (Rxy \rightarrow \exists z (Sz \wedge fz=x \wedge Ty))\}$
+	$\Phi_{\mathcal{K}_7} \defgr \{ \forall x \forall y(Rxy \rightarrow Ty \wedge \exists s(Ss \wedge fs=x)), \forall x \forall y(Sx \wedge Ty \rightarrow Rfxy)\}$
 \end{adjustwidth}
 
 
@@ -120,7 +125,14 @@
 
 \section*{Aufgabe 3 (Punkte:\qquad/\pp)}
 \begin{adjustwidth}{20pt}{20pt}
-TODO	
+	Definiere $\phi_\infty \defgr \exists a(\forall b(fb \neq a)) \wedge \forall x \forall y(fx = fy \rightarrow x=y)$. Die Formel sagt aus, dass einerseits ein Element existiert, worauf
+	$f$ nicht abbildet, und dass das die Funktion injektiv sein soll.\\
+	Für die Formel existiert kein endliches Modell, denn: Angenommen, es existiert ein endliches Modell. Da $f$ vom Universum auf das Universum abbildet, und weil die Funktion injektiv ist,
+	da ein Modell vorliegt, folgt, dass $f$ dann bijektiv ist, da Definitionsbereich und Zielbereich endlich und gleichmächtig sind. Somit ist $f$ insbesondere auch surjektiv, dies steht aber
+	zum Widerspruch, dass ein element existiert, worauf nicht abgebildet wird. Somit kann kein endliches Modell existieren.\\
+	Die Formel hat aber ein Modell, z.B. $(\mathbb{N},f)$ mit $f(n)=n+1$. Offensichtlich ist $\mathbb{N}$ unendlich, es existiert kein $m \in \mathbb{N}$, sodass $f(m)=0$, und die Funktion
+	ist injektiv. 
+	
 \end{adjustwidth}
 
 
@@ -142,7 +154,7 @@ Die Aussage ist falsch. Sei $\varphi \defgr x_1 \neq x_2$. Dann ist $\varphi$ er
 \end{adjustwidth}
 \textbf{(d)}
 \begin{adjustwidth}{20pt}{20pt}
-Die Aussage ist falsch. Gegenbeipiel	:\\
+Die Aussage ist falsch. Gegenbeispiel	:\\
 Sei $\varphi \defgr x \neq y$ und $\psi \defgr x \neq x$. Dann ist $\forall x \varphi$ und $\forall x \psi$ unerfüllbar, also $\forall x \varphi \equiv \forall x \psi$, jedoch $\exists x \varphi$ erfüllbar und $\exists x \psi$ nicht, also $\exists x \varphi \not \equiv \exists x \psi$.
 \end{adjustwidth}
 \textbf{(e)}

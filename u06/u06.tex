@@ -85,7 +85,7 @@
 \textbf{(a)}
 \begin{adjustwidth}{20pt}{20pt}
 	$\Phi_{\mathcal{K}_1} \defgr \{\forall x(Sx \rightarrow \exists y(Ty \wedge Rxy \wedge \forall z(Tz \wedge Rxz \rightarrow y=z))),
-	\forall x\forall y\forall z(Rxz \wedge Ryz \rightarrow x=z), \forall y(Ty \rightarrow \exists x(Sx \wedge Rxy))\}$
+	\forall x\forall y\forall z(Rxz \wedge Ryz \rightarrow x=y), \forall y(Ty \rightarrow \exists x(Sx \wedge Rxy))\}$
 \end{adjustwidth}
 \textbf{(b)}
 \begin{adjustwidth}{20pt}{20pt}
@@ -102,7 +102,7 @@
 \begin{adjustwidth}{20pt}{20pt}
 	%$\Phi_{\mathcal{K}_4} \defgr \{ \forall x_0 \dotsc \forall x_n \left ( x_0 \wedge Sx_n = f(x_n) \rightarrow \left(\bigvee\limits_{i < n} \neg Rx_ix_{i+1} \right) \right ) \}$
 	Definiere $\varphi_n \defgr \exists x_1,...\exists x_n(\bigwedge_{i=1,...,n-1}(Rx_ix_{i+1} \wedge x_n=fx_1 \wedge Sx_1))$. (Es ex. ein Pfad der Länge $n$ von einem $s\in S$ zu $f(s)$). \\
-	$\Phi_{\mathcal{K}_4} \defgr \{ \varphi_n\ |\ n \in \mathbb{N}\}$
+	$\Phi_{\mathcal{K}_4} \defgr \{ \neg \varphi_n \ |\ n \in \mathbb{N}\}$
 \end{adjustwidth}
 \textbf{(e)}
 \begin{adjustwidth}{20pt}{20pt}
@@ -111,7 +111,7 @@
 \textbf{(f)}
 \begin{adjustwidth}{20pt}{20pt}
 	%$\Phi_{\mathcal{K}_6} \defgr \{ \forall x (Tx \rightarrow \exists y (Ty \wedge fy=x))\}$
-	Definiere $\psi_n \defgr \forall x(Tx \rightarrow(\exists y(Ty \wedge f^n=x)))$. (Für ein festes $n$ ist dies eine FO-Formeln, $f^n$ als Kurzschreibweise.) \\
+	Definiere $\psi_n \defgr \forall x(Tx \rightarrow(\exists y(Ty \wedge f^ny=x)))$. (Für ein festes $n$ ist dies eine FO-Formeln, $f^ny$ als Kurzschreibweise.) \\
 	$\Phi_{\mathcal{K}_6} \defgr \{ \psi_n\ |\ n \in \mathbb{N}\}$
 \end{adjustwidth}
 \textbf{(g)}

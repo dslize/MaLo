@@ -104,8 +104,8 @@ Eliminiere nun schrittweise die Existenzquantoren, dabei entsteht jeweils eine n
 		&\equiv \forall x \varphi \wedge \forall x\exists y \forall z \psi \\
 		&\equiv \forall x \varphi \wedge \exists y \forall z \psi \\
 		&\equiv \forall x \varphi \wedge \exists y \forall z \forall x \psi \\
-		&\equiv \exists y \forall z(\forall x \varphi \wedge \forall x \psi)i \\
-		&\equiv \exists y\forall z \forall x(\varphi \wedge \psi)i \\
+		&\equiv \exists y \forall z(\forall x \varphi \wedge \forall x \psi) \\
+		&\equiv \exists y\forall z \forall x(\varphi \wedge \psi) \\
 		&\equiv \exists y\forall x \forall z(\varphi \wedge \psi)
 \end{align*}
 \end{adjustwidth}
@@ -114,15 +114,54 @@ Eliminiere nun schrittweise die Existenzquantoren, dabei entsteht jeweils eine n
 \section*{Aufgabe 3 (Punkte:\qquad/\pp)}
 \textbf{(a)}
 \begin{adjustwidth}{20pt}{20pt}
-
+	\begin{itemize}
+	\item $G_1: W_0 = \{ 7,10,6\}, W_1 = \{ 8,9,4,5,2,3,1\}$
+	\item $G_2: W_0 = \{ 3,5,1,\}, W_1 = \{\}$
+	\item $G_3: W_0 = \{\}, W_1 = \{ 7,4,6,2,3,1,5\}$
+	\end{itemize}
 \end{adjustwidth}
 \textbf{(b)}
 \begin{adjustwidth}{20pt}{20pt}
-
+	\begin{itemize}
+	\item Das Spiel $G_1$ ist fundiert, da der Spielgraph azyklisch und endlich ist und mehrere Endpositionen besitzt. Somit endet jede Partie schließlich in endlich vielen Schritten 
+	in einer Endposition, d.h. jede Partie ist endlich. $G_1$ ist ebenfalls determiniert, da $\{ W_0,W_1\}$ eine Partition der Gesamtmenge der Positionen ist, also hat von jeder Position
+	aus einer der beiden Spieler eine Gewinnstrategie.
+	\item Das Spiel $G_2$ ist nicht fundiert, da zum Beispiel die Partie, welche bei 2 beginnt und in welcher Spieler 1 von 2 aus stets zu 4 zieht, unendlich ist. $G_2$ ist ebenfalls
+	nicht determiniert, da zum Beispiel die Position 2 in keiner der beiden Gewinnregionen liegt.
+	\item Das Spiel $G_3$ ist nicht fundiert. Betrachte die Partie, welche als Startposition 2 besitzt und in welcher Spieler 0 von 2 stets zu 4 zieht und Spieler 1 von 4 stets zu 2 zieht.
+	Diese ist offensichtlich unendlich. $G_3$ ist aber determiniert, da die beiden Gewinnregionen die Menge der Positionen partitionieren, d.h. von jeder Position hat ein Spieler (hier stets
+	Spieler 1) eine Gewinnstrategie.
+	\end{itemize}
 \end{adjustwidth}
 \textbf{(c)}
 \begin{adjustwidth}{20pt}{20pt}
-
+	Sei ein fundiertes Spiel, dessen Spielgraph $G$ und eine beliebige Position $v \in G$ gegeben. Zeige per Induktion über die minimale Anzahl an Zügen, mit der ein Spieler
+	von $v$ aus gewinnen kann (es kann stets ein Spieler gewinnen, da $G$ fundiert und eine endliche Partie stets einen Gewinner und Verlierer hat), dass einer der beiden Spieler
+	eine Gewinnstrategie von $v$ aus besitzt.\\
+	Falls $n=0$ die minimale Anzahl der benötigten Züge ist, damit Spieler 0 oder 1 gewinnt, handelt es sich bei $v$ um eine Endposition. Falls von $v$ aus Spieler 0 ziehen muss, so hat
+	Spieler 1 automatisch gewonnen und somit auch eine Gewinnstrategie. Falls von $v$ aus Spieler 1 ziehen muss, so hat Spieler 0 automatisch gewonnen und somit eine Gewinnstrategie. Zusammen
+	hat also entweder Spieler 0 oder Spieler 1 eine Gewinnstrategie von $v$ aus. \\
+	Sei nun $n>0$ die minimale Anzahl der benötigten Züge, sodass Spieler 0 oder 1 von $v$ aus gewinnen kann. Es lässt sich nun die Induktionsvoraussetzung auf alle Nachfolger $w \in vE$ von
+	$v$ anwenden, d.h. für diese Positionen ist bekannt, welcher Spieler eine Gewinnstrategie von $w$ aus besitzt. Nun lässt sich auch bestimmen, welcher Spieler eine Gewinnstrategie
+	von $v$ aus besitzt, betrachte hierzu unterschiedliche Fälle:
+	\begin{itemize}
+	\item Spieler 0 muss bei $v$ ziehen;
+	\begin{itemize}
+	\item Es existiert ein Nachfolger $w \in vE$, von welchem aus Spieler 0 eine Gewinnstrategie hat. In dem Fall besitzt Spieler 0 eine Gewinnstrategie von $v$, nämlich soll von
+	$v$ zu $w$ gezogen werden, dann wird die Strategie von $w$ aus befolgt.
+	\item Für alle Nachfolger $w \in vE$ hat Spieler 1 eine Gewinnstrategie. In dem Fall hat auch Spieler 1 eine Gewinnstrategie von $v$ aus, da egal wie Spieler 0 zieht, eine Gewinnstrategie
+	für $w$ existiert.
+	\end{itemize}
+	\item Spieler 1 muss bei $v$ ziehen;
+	\begin{itemize}
+	\item Es existiert ein Nachfolger $w \in vE$, von welchem aus Spieler 1 eine Gewinnstrategie hat. In dem Fall besitzt Spieler 1 eine Gewinnstrategie von $v$, nämlich soll von
+	$v$ zu $w$ gezogen werden, dann wird die Strategie von $w$ aus befolgt.
+	\item Für alle Nachfolger $w \in vE$ hat Spieler 0 eine Gewinnstrategie. In dem Fall hat Spieler 0 eine Gewinnstrategie von $v$ aus, da egal wie Spieler 1 zieht, eine Gewinnstrategie
+	für $w$ existiert.
+	\end{itemize}
+	\end{itemize}
+	Da $v$ beliebig war, wurde gezeigt, dass für jede Position im fundierten Spiel $G$ einer der beiden Spieler eine Gewinnstrategie besitzt. Somit ist $G$ also auch determiniert.
+	
 \end{adjustwidth}
 
 \section*{Aufgabe 4 (Punkte:\qquad/\ppp)}

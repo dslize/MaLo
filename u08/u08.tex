@@ -1,0 +1,163 @@
+\documentclass[11pt, a4paper]{article}
+
+\usepackage{graphicx}
+\usepackage{forest}
+\usepackage{proof}
+\usepackage[utf8]{inputenc}
+\usepackage{fancyhdr}
+\usepackage{changepage}
+\usepackage[onehalfspacing]{setspace}
+\usepackage{ragged2e}
+\usepackage{ amssymb, amsmath, amsthm, dsfont }
+\usepackage[width = 18cm, top = 2.5cm, bottom = 3cm]{geometry}
+\usepackage{extarrows}
+\usepackage{stmaryrd}
+% ---------
+
+\newcommand{\myTitleString} {}
+\newcommand{\myAuthorString} {}
+\newcommand{\mySubTitleString} {}
+\newcommand{\myDateString} {}
+
+\newcommand{\myTitle}[1] {\renewcommand {\myTitleString}{#1}}
+\newcommand{\mySubTitle}[1] {\renewcommand {\mySubTitleString}{#1}}
+\newcommand{\myAuthor}[1] {\renewcommand{\myAuthorString}		{#1}}
+\newcommand{\myDate}[1] {\renewcommand{\myDateString}{#1}}
+
+\newcommand{\makeMyTitle}
+{
+\pagestyle{fancy}
+\fancyhead[L]
+{
+\begin{tabular}{l}
+\myTitleString
+\\ \mySubTitleString 
+\\ \myDateString
+\end{tabular}
+} 			
+\fancyhead[C]{}
+\fancyhead[R]{\myAuthorString}
+\fancyfoot[C]{\thepage}
+}
+
+\setlength{\headheight}{45pt}
+
+\newcommand{\p}{10}
+\newcommand{\pp}{7}
+\newcommand{\ppp}{15}
+\newcommand{\pppp}{11*} 
+
+\newcommand{\defgl}{\mathrel{=\!\!\mathop:}}
+\newcommand{\defgr}{\mathrel{\mathop:\!\!=}}
+
+\newcommand{\struc}[1]{\ensuremath{\mathfrak{#1}}}
+
+\makeatletter
+\renewcommand*\env@matrix[1][*\c@MaxMatrixCols c]{%
+  \hskip -\arraycolsep
+  \let\@ifnextchar\new@ifnextchar
+  \array{#1}}
+\makeatother
+% ---------
+%\setlength{\parindent}{0pt}
+\begin{document}
+
+\myTitle{\textsc{Mathematische Logik}}
+\mySubTitle{Übung 8}
+\myDate{17. Juni 2017}
+\myAuthor
+{
+\begin{tabular}{l l}
+346532, &Daniel Boschmann\\
+348776, &Anton Beliankou	\\
+356092, &Daniel Schleiz
+\end{tabular}
+}
+\makeMyTitle
+
+\begin{tabular}{|c|c|c|c|c|}\hline
+   2 & 3 & 4 & 5 &$\sum$\\\hline
+  	 \qquad/\p & \qquad/\pp & \qquad/\ppp & \qquad/\pppp &\qquad/32\\\hline
+ \end{tabular}
+\hspace*{20pt} {\huge Gruppe \textbf{G}}
+\vspace*{30pt}
+
+
+\section*{Aufgabe 2 (Punkte:\qquad/\p)}
+\textbf{(a)}
+\begin{adjustwidth}{20pt}{20pt}
+
+\end{adjustwidth}
+\textbf{(b)}
+\begin{adjustwidth}{20pt}{20pt}
+	Sei \struc{A} eine $\tau$-Struktur, sodass jedes Element elementar definierbar ist. Sei außerdem $\pi$ ein beliebiger Automorphismus von \struc{A} und $a \in A$ beliebig.
+	Aus der elementaren Definierbarkeit von $a$ folgt, dass eine Formel $\varphi_a(x)$ existiert, sodass $\struc{A} \models \varphi_a(a)$ und $\struc{A} \not\models \varphi_a(b)$
+	für alle $b \in A$ mit $b \neq a$. Da $\pi$ als Automorphismus auch insbesondere ein Isomorphismus ist, gilt mit dem Isomorphielemma, dass $\struc{A} \models \varphi_a(x)$ gdw.
+	$\struc{A} \models \varphi_a(\pi(x))$. Nun muss aber $\pi(a)=a$ sein, da sonst das Isomorphielemma verletzt wäre. ($\struc{A} \models \varphi_a(a)$, aber
+	$\struc{A} \not\models \varphi_a(\pi(a))$, falls $\pi(a) \neq a$.) \\
+	Da $a$ beliebig gewählt war, gilt für alle $a \in A$, dass $\pi(a)=a$ und somit $\pi = 1_\struc{A}$, obwohl auch $\pi$ beliebig gewählt war. Es folgt also, dass nur $1_\struc{A}$
+	ein Automorphismus von \struc{A} ist, also ist \struc{A} starr.
+\end{adjustwidth}
+\textbf{(c)}
+\begin{adjustwidth}{20pt}{20pt}
+	Eine unendliche Struktur mit dieser Eigenschaft ist zum Beispiel durch $(\mathbb{N},0,1,+)$ gegeben, da jedes Element elementar definierbar ist. (Sogar termdefinierbar durch
+	$1+...+1$ für Zahlen größer als 1., 0 und 1 bereits in der Signatur.)
+\end{adjustwidth}
+
+
+\section*{Aufgabe 3 (Punkte:\qquad/\pp)}
+\textbf{(a)}
+\begin{adjustwidth}{20pt}{20pt}
+
+\end{adjustwidth}
+\textbf{(b)}
+\begin{adjustwidth}{20pt}{20pt}
+
+\end{adjustwidth}
+\textbf{(c)}
+\begin{adjustwidth}{20pt}{20pt}
+
+\end{adjustwidth}
+
+\section*{Aufgabe 4 (Punkte:\qquad/\ppp)}
+\textbf{(a)}
+\begin{adjustwidth}{20pt}{20pt}
+
+\end{adjustwidth}
+\textbf{(b)}
+\begin{adjustwidth}{20pt}{20pt}
+
+\end{adjustwidth}
+\textbf{(c)}
+\begin{adjustwidth}{20pt}{20pt}
+
+\end{adjustwidth}
+\textbf{(d)}
+\begin{adjustwidth}{20pt}{20pt}
+
+\end{adjustwidth}
+\textbf{(e)}
+\begin{adjustwidth}{20pt}{20pt}
+
+\end{adjustwidth}
+\textbf{(f)}
+\begin{adjustwidth}{20pt}{20pt}
+
+\end{adjustwidth}
+
+
+\section*{Aufgabe 5 (Punkte:\qquad/\pppp)}
+\textbf{(a)}
+\begin{adjustwidth}{20pt}{20pt}
+
+\end{adjustwidth}
+\textbf{(b)}
+\begin{adjustwidth}{20pt}{20pt}
+
+\end{adjustwidth}
+\textbf{(c)}
+\begin{adjustwidth}{20pt}{20pt}
+
+\end{adjustwidth}
+
+\end{document}

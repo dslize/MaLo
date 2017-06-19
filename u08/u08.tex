@@ -8,7 +8,7 @@
 \usepackage{changepage}
 \usepackage[onehalfspacing]{setspace}
 \usepackage{ragged2e}
-\usepackage{ amssymb, amsmath, amsthm, dsfont }
+\usepackage{ amssymb, amsmath, amsthm, dsfont, marvosym }
 \usepackage[width = 18cm, top = 2.5cm, bottom = 3cm]{geometry}
 \usepackage{extarrows}
 \usepackage{stmaryrd}
@@ -122,7 +122,7 @@
 \section*{Aufgabe 4 (Punkte:\qquad/\ppp)}
 \textbf{(a)}
 \begin{adjustwidth}{20pt}{20pt}
-
+	Elementar definierbar, durch die Formel: $\varphi(x) \defgr \forall y(y \cdot x = y)$.
 \end{adjustwidth}
 \textbf{(b)}
 \begin{adjustwidth}{20pt}{20pt}
@@ -130,19 +130,30 @@
 \end{adjustwidth}
 \textbf{(c)}
 \begin{adjustwidth}{20pt}{20pt}
-
+	Elementar definierbar, durch die Formel: $\varphi_c(x,y) \defgr n = m \cdot m \cdot m \cdot m \cdot m$.
 \end{adjustwidth}
 \textbf{(d)}
 \begin{adjustwidth}{20pt}{20pt}
-
+	Die Relation ist elementar definierbar. Definiere zunächst ein paar Hilfsformeln:\\
+	$\varphi_{\text{teilt}}(a,b) \defgr \exists x(a \cdot x = b)$. ("a teilt b") und\\
+	$\varphi_{\text{prim}}(a) \defgr \forall x(\varphi_{\text{teilt}}(x,a) \rightarrow x=1 \vee x=a) \wedge a\neq 1$ ("a ist prim").\\
+	Nun lässt sich die gewünschte Relation durch folgende Formel definieren:\\
+	$\varphi_{pp}(a) \defgr \exists x(\varphi_{\text{teilt}}(x,a) \wedge \varphi_{\text{prim}}(x) \wedge \forall y(\varphi_{\text{teilt}}(y,a) \rightarrow y=x))$
 \end{adjustwidth}
 \textbf{(e)}
 \begin{adjustwidth}{20pt}{20pt}
-
+	Die Relation ist nicht elementar definierbar. Definiere dazu zunächst auf den komplexen Zahlen den Automorphismus $\pi:\mathbb{C} \to \mathbb{C}, a+bi \mapsto a-bi$. Die Abbildung
+	ist sowohl surjektiv (Für eine beliebige komplexe Zahl wird dessen komplex konjugierte Zahl darauf abgebildet.) und ebenfalls injektiv (Der Realteil bleibt identisch, durch negieren des
+	Imaginärteils können nicht zwei verschiedene komplexe Zahlen auf dieselbe Zahl abbilden.)\\
+	Angenommen, es gäbe $\varphi(x) \in \text{FO}(\{ +\})$, welche die Menge elementar definiert. Dann gilt für $z \defgr 2+2i$, dass $(\mathbb{C},+) \models \varphi(z)$, da
+	$\operatorname{Re}(z)=2=\operatorname{Im}(z)$. Dann gilt mit dem Isomorphielemma, dass auch $(\mathbb{C},+) \models \varphi(\pi(z))=\varphi(2-2i)$. \Lightning\ Widerspruch, da
+	$\operatorname{Re}(\pi(z))=2\neq -2=\operatorname{Im}(\pi(z))$. Somit ist die Relation nicht elementar definierbar.
 \end{adjustwidth}
 \textbf{(f)}
 \begin{adjustwidth}{20pt}{20pt}
-
+	Die Relation ist elementar definierbar. Definiere zunächst die Hilfsformel $\psi_\epsilon(a) \defgr \forall x(a \preceq x)$. Diese Formel definiert gerade die Menge mit dem leeren Wort, also
+	$\{\epsilon\}$, da nur das leere Wort Präfix jedes Wortes ist. Definiere nun damit die gewünschte Relation:\\
+	$\psi_{01}(a) \defgr \neg\psi_\epsilon(a) \wedge \forall y(y \preceq a \rightarrow \psi_\epsilon(y) \vee y=a)$.
 \end{adjustwidth}
 
 

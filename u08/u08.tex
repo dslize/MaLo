@@ -108,11 +108,25 @@
 \section*{Aufgabe 3 (Punkte:\qquad/\pp)}
 \textbf{(a)}
 \begin{adjustwidth}{20pt}{20pt}
-
+	Angenommen, $\pi\upharpoonright\mathbb{P}$ ist keine Primzahlpermutation. Da $\pi$ Automorphismus und somit insbesondere injektiv ist, existieren also
+	$p \in \mathbb{P}$ und $n \in \mathbb{N}\backslash \mathbb{P}$, sodass $\pi(p)=n$. Betrachte nun die Formel $\varphi_{\text{prim}}(a)$ aus Aufgabenteil 4(b), welche
+	wahr ist gdw. a prim ist. Nach Isomorphielemma müsste aus $(\mathbb{N},\cdot) \models \varphi_{\text{prim}}(p)$ ebenfalls
+	$(\mathbb{N},\cdot) \models \varphi_{\text{prim}}(\pi(p))$ folgen, dies steht aber im Widerspruch dazu, dass $\pi(p)=n$ nicht prim ist. Somit war die Annahme falsch, dass
+	$\pi\upharpoonright\mathbb{P}$ keine Primzahlpermutation ist.
 \end{adjustwidth}
 \textbf{(b)}
 \begin{adjustwidth}{20pt}{20pt}
-
+	Sei $f:\mathbb{P}\to \mathbb{P}$ eine Primzahlpermutation. Zeige zunächst, dass der Automorphismus $\pi_f:\mathbb{N} \to \mathbb{N}$ existiert. Definiere dazu $\pi_f$ wie
+	folgt:
+	\[
+	\pi_f(x) \defgr 
+	\begin{cases}
+	f(x) & \text{falls $x\in \mathbb{P}$}\\
+	x & \text{falls $x \in \{0,1\}$}\\
+	f(p_1)\cdot...\cdot f(p_n) & \text{falls $x\notin \mathbb{P}$ und mit der Primfaktorzerlegung $p_1,...,p_n$ von $x$}
+	\end{cases}
+	\]
+	Die Abbildung ist wohldefiniert, da jede natürliche Zahl eine eindeutige Primfaktorzerlegung besitzt. Die Abbildung ist bijektiv: Injektiv, da jede natü
 \end{adjustwidth}
 \textbf{(c)}
 \begin{adjustwidth}{20pt}{20pt}
@@ -160,7 +174,7 @@
 \section*{Aufgabe 5 (Punkte:\qquad/\pppp)}
 \textbf{(a)}
 \begin{adjustwidth}{20pt}{20pt}
-
+% einfach! TODO
 \end{adjustwidth}
 \textbf{(b)}
 \begin{adjustwidth}{20pt}{20pt}

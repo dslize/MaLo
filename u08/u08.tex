@@ -86,9 +86,21 @@
 
 \section*{Aufgabe 2 (Punkte:\qquad/\p)}
 \textbf{(a)}
-\begin{adjustwidth}{20pt}{20pt}
-
-\end{adjustwidth}
+\begin{itemize}
+\item \struc{Q} ist starr: 0 ist definierbar mit $\psi_0(a)=\forall x(a + x = x)$, 1 ist definierbar mit $\psi_1(a) \defgr \forall x(a \cdot x = x)$, -1 ist definierbar mit 
+	$\psi_{-1}(a)=\exists x \exists y(\psi_0(x) \wedge \psi_1(y) \wedge a+1=0)$. Nun sind eine beliebige ganze Zahl $z \in \mathbb{Z}$ und $-z$ definierbar durch 
+	$\psi_z(a)= \exists x \exists y(\psi_0(x) \wedge (\psi_1(y) \vee psi_{-1}(y)) \wedge a = x+y+...+y)$, wobei z-Mal in der Formel "+y" auftauchen soll. Nun ist ein beliebiger Bruch 
+	$\frac{p}{q}$, $p,q \in \mathbb{Z}$ und sein negatives definierbar durch $\psi_{\frac{p}{q}}(a)=\exists x \exists y(\psi_p(x) \wedge \psi_q(y) \wedge y \cdot a = x)$. Da somit
+	jedes Element aus dem Universum definierbar ist, gilt mit Aufgabenteil (b), dass \struc{Q} starr ist. 
+\item (Schreibe der Übersichtlichkeit halber die Funktion +1 in Postfixnotation auf) \struc{N} ist starr: Zunächst ist die 0 definierbar durch $\psi_0(a)=\neg\exists x(x+1=a)$. Nun ist jede Zahl
+	$n \in \mathbb{N}$ größer 0 definierbar durch $\psi_n(a)=\exists x(\psi_0(x) \wedge a=x(+1)^n)$, wobei $(+1)^n$ Kurzschreibweise für $+1+1...$ ist, für festes $n$ ist also $\psi_n$
+	eine FO-Formel. Da jedes Element aus $\mathbb{N}$ elementar definierbar ist, ist mit Aufgabenteil (b) \struc{N} starr.
+\item \struc{A} ist nicht starr, da zum Beispiel die Abbildung $\pi:z \mapsto z+6$ Automorphismus ist. Die Abbildung ist offensichtlich bijektiv, außerdem ist sie verträglich mit "<", da es
+	eine Äquivalenzumformung ist, auf beiden Seiten einer Ungleichung mit "<" 6 zu addieren, somit gilt für beliebige $a,b \in \mathbb{Z}$, dass $a<b$ gdw. $\pi(a)<\pi(b)$. Zudem
+	folgt aus $z \in 2\mathbb{Z}$, dass $\pi(z)=z+6 \in 2\mathbb{Z}$, da das Addieren einer gerade Zahl mit der geraden Zahl 6 erneut eine gerade Zahl ergibt. Außerdem 
+	folgt aus $z \in 3\mathbb{Z}$, dass $\pi(z)=z+6 \in 3\mathbb{Z}$, weil 6 ein Vielfaches von 3 ist und das Aufaddieren von 6 auf ein Vielfaches von 3 ebenfalls Vielfaches von 3 ist.
+	Da also ein Automorphismus ungleich der Identität existiert, ist \struc{A} nicht starr.
+\end{itemize}
 \textbf{(b)}
 \begin{adjustwidth}{20pt}{20pt}
 	Sei \struc{A} eine $\tau$-Struktur, sodass jedes Element elementar definierbar ist. Sei außerdem $\pi$ ein beliebiger Automorphismus von \struc{A} und $a \in A$ beliebig.
@@ -147,7 +159,13 @@
 \end{adjustwidth}
 \textbf{(c)}
 \begin{adjustwidth}{20pt}{20pt}
-
+	Die durch die Primzahlpermutationen induzierten Automorphismen von $(\mathbb{N},\cdot)$ charakterisieren auch die Automorphismen von $(\mathbb{N},\cdot,|)$, denn: Stelle zunächst einmal
+	fest, dass durch Erweiterung der Signatur höchstens Automorphismen wegfallen könnten durch Unverträglichkeit mit der neuen Relation, und keine hinzukommen können, aufgrund der Verträglichkeit
+	mit $\cdot$. Betrachte einen Automorhpismus $\pi$ wie in (a) und (b) beschrieben und seien $m,n \in \mathbb{N}$ gegeben. Da 0 und 1 festgehalten werden, kann in solchen Fällen kein
+	Widerspruch entstehen. Zudem ist, falls $m|n$, $n$ nie prim, außer $m=1$ oder $m=n$. (In den Fällen gilt $\pi(m)|\pi(n)$.) Sei nun $m|n$ und $n$ nicht prim, d.h. es existiert eine
+	Primfaktorzerlegung $p_1,...,p_k$ von $n$. Da $n$ von $m$ geteilt wird, ist entweder $m$ gleich einer der Primfaktoren von $n$ oder $m$ ist ebenfalls nicht prim, jedoch bilden die
+	Primfaktoren von $m$ eine Teilmenge von denen von $n$, da sonst die Teilbarkeitsrelation nicht erfüllt wäre. Nun folgt, dass $\pi(m)\pi(n)$, da ein Permutieren eines Primfaktors, welcher 		sowohl in $m$ als auch in $n$ auftritt, nichts an der Teilbarkeit ändert. Gleiches gilt, falls nur die Primfaktoren permutiert werden, welche in $n$ aber nicht in $m$ auftauchen.
+	Es folgt also nun die Aussage.
 \end{adjustwidth}
 
 \section*{Aufgabe 4 (Punkte:\qquad/\ppp)}
@@ -157,7 +175,7 @@
 \end{adjustwidth}
 \textbf{(b)}
 \begin{adjustwidth}{20pt}{20pt}
-
+TODO
 \end{adjustwidth}
 \textbf{(c)}
 \begin{adjustwidth}{20pt}{20pt}

@@ -12,6 +12,7 @@
 \usepackage[width = 18cm, top = 2.5cm, bottom = 3cm]{geometry}
 \usepackage{extarrows}
 \usepackage{stmaryrd}
+\usepackage{enumitem}
 % ---------
 
 \newcommand{\myTitleString} {}
@@ -126,7 +127,23 @@
 	f(p_1)\cdot...\cdot f(p_n) & \text{falls $x\notin \mathbb{P}$ und mit der Primfaktorzerlegung $p_1,...,p_n$ von $x$}
 	\end{cases}
 	\]
-	Die Abbildung ist wohldefiniert, da jede natürliche Zahl eine eindeutige Primfaktorzerlegung besitzt. Die Abbildung ist bijektiv: Injektiv, da jede natü
+	Die Abbildung ist wohldefiniert, da jede natürliche Zahl eine eindeutige Primfaktorzerlegung besitzt. 
+	Außerdem ist aufgrund des ersten Falles in der Definition $\pi_f \upharpoonright \mathbb{P}=f$. Die Abbildung ist bijektiv: Injektiv, da jede natürliche Zahl eine eindeutige und
+	einzigartige Primfaktorzerlegung besitzt (bis auf die Reihenefolge der Faktoren) und die Primzahlpermutation bijektiv und dadurch insbesondere injektiv ist, weshalb auf jede Zahl
+	höchstens einmal abgebildet wird. Surjektiv, da man für eine beliebige Zahl dessen Primfaktorzerlegung berechnen kann und durch Anwendung der bijektiven Primzahlpermutation $f$ auf die
+	Faktoren und anschließender Produktbildung wieder auf das (einelementige) Urbild schließen kann.\\
+	Zudem ist $\pi_f$ verträglich mit der Multiplikation, denn: Seien $a,b \in \mathbb{N}$ beliebig und $p_1,...,p_k,q_1,...,q_l \in \mathbb{P}$ die Primfaktoren von $a$ bzw. $b$, d.h.
+	${\displaystyle a=\prod_{1 \leq i \leq k}p_i}$ und ${\displaystyle b=\prod_{1 \leq j \leq l}q_j}$. Stelle zunächst fest, dass daraus die Primfaktorzerlegung für $a \cdot b$ folgt, da
+	$a \cdot b = {\displaystyle \prod_{1 \leq i \leq k}p_i} \cdot {\displaystyle \prod_{1 \leq j \leq l}q_j}$. Nun gilt:
+	\[
+	\pi(a) \cdot \pi(b) = \prod_{1 \leq i \leq k}f(p_i) \cdot \prod_{1 \leq j \leq l}f(q_j) = \pi(a \cdot b)
+	\]
+	Für die Sonderfälle 0 und 1, welche keine Primfaktorzerlegung besitzen, ist die Abbildung ebenfalls verträglich mit der Multiplikation, denn für $c \in \mathbb{N}$ beliebig ist
+	$\pi(c) \cdot \pi(1) = \pi(c) \cdot 1 = \pi(c \cdot 1)$ und $\pi(c) \cdot \pi(0) = \pi(c) \cdot 0 = 0 = \pi(0) = \pi(c \cdot 0)$. Es folgt nun, dass $\pi_f$ ein Automorphismus ist.\\
+	Angenommen, es existiert ein anderer Automorphismus $\pi_f'$, sodass $\pi_f' \upharpoonright \mathbb{P}=f$. Dann werden Primzahlen gemäß der Permutation abgebildet, zudem müssen 0 und
+	1 festgehalten werden, da diese elementar definierbar sind (mittels $\psi_0(a)=\forall x(a\cdot x=a)$ und $\psi_1(a)=\forall x(a \cdot x=x)$), und sonst ein Widerspruch zum Isomorphielemma
+	entstehen würde. Es existiert also ein $z \in \mathbb{N}$, sodass $\pi(z) \neq f(p_1)\cdot...\cdot f(p_n)$, wobei $p_1,...,p_n$ die Primfaktorzerlegung von $z$ sei. Dann gilt 
+	$\pi(z)=\pi(p_1 \cdot ... \cdot p_n) \neq \pi(p_1) \cdot ... \cdot \pi(p_n)$, Widerspruch dazu, dass $\pi$ ein Isomorphismus ist. Somit gilt $\pi_f' = \pi_f$, also eindeutig. 
 \end{adjustwidth}
 \textbf{(c)}
 \begin{adjustwidth}{20pt}{20pt}
@@ -144,7 +161,9 @@
 \end{adjustwidth}
 \textbf{(c)}
 \begin{adjustwidth}{20pt}{20pt}
-	Elementar definierbar, durch die Formel: $\varphi_c(x,y) \defgr n = m \cdot m \cdot m \cdot m \cdot m$.
+	Nicht elementar definierbar: Wähle als Automorphismus den durch die Primpermutation, welche 5 auf 3 und 3 auf 5 abbildet und die restlichen Primzahlen festhält, induzierten Automorphismus.
+	Angenommen, es existiert eine Formel $\psi(x,y)$, welche die gegebene Relation definiert. Dann gilt $(\mathbb{N},\cdot) \models (2,5\cdot 2)$ und mit dem Isomorphielemma müsste folgen, dass
+	auch $(\mathbb{N},\cdot) \models (\pi(2),\pi(5\cdot 2))=(2,3 \cdot 2)$, es ist aber $5\cdot 2 \neq 3 \cdot 2$, also Widerspruch. Damit ist die Relation nicht definierbar.
 \end{adjustwidth}
 \textbf{(d)}
 \begin{adjustwidth}{20pt}{20pt}
@@ -172,10 +191,19 @@
 
 
 \section*{Aufgabe 5 (Punkte:\qquad/\pppp)}
-\textbf{(a)}
-\begin{adjustwidth}{20pt}{20pt}
-% einfach! TODO
-\end{adjustwidth}
+\textbf{(a)} Seien $\varphi(x_1,...,x_k) \in \text{FO}(\tau)$ und $a_1,...,a_k \in A$ beliebig.
+\begin{enumerate}[label=(\roman*)]
+\item Sei $\struc{A} \subseteq \struc{B} \preceq \struc{C}$ und $\struc{A} \preceq \struc{C}$. Dann gilt:
+	$$\bigg( \struc{A} \models \varphi(a_1,...,a_k) \bigg) \overset{\struc{A} \preceq \struc{C}}{\Leftrightarrow} \bigg( \struc{C} \models \varphi(a_1,...,a_k) \bigg)
+	\overset{\struc{B} \preceq \struc{C}}{\Leftrightarrow} \bigg( \struc{B} \models \varphi(a_1,...,a_k) \bigg)$$
+Es folgt also, dass $\struc{A} \preceq \struc{B}$.
+\item Die Aussage gilt nicht. Betrachte die Strukturen $(\mathbb{N},\cdot)$ und $(2\mathbb{N},\cdot)$, wobei $2\mathbb{N} \defgr \{2n\ |\ n \in \mathbb{N}\}$ die geraden Zahlen sind.
+Definiere den Isomorphismus $\pi:2\mathbb{N} \to \mathbb{N}, n \mapsto \frac{n}{2}$. (Offensichtlich bijektiv.) Damit gilt $\mathbb{N} \cong 2\mathbb{N}$.
+Zunächst ist die 0 definierbar durch $\psi_0(a)=\forall x(a + x = x)$. Betrachte die Formel $\psi(a)=\neg\psi_0(a) \wedge \neg \exists x \exists y(\neg\psi_0(x) \wedge \neg\psi_0(y) \wedge
+x+y=a)$ ("$a$ ist ungleich 0 und es existieren keine zwei Zahlen ungleich 0, sodass dessen Summe $a$ ergibt.") Nun gilt $(2\mathbb{N},\cdot) \models \psi(2)$, da 2 in $2\mathbb{N}$
+nicht als Summe von zwei Zahlen ungleich 0 dargestellt werden kann, jedoch ist $(2\mathbb{N},\cdot) \not\models \psi(2)$, da in $\mathbb{N}$ gilt, dass $2=1+1$. Widerspruch zum
+Isomophielemma, also ist die Aussage falsch.
+\end{enumerate}
 \textbf{(b)}
 \begin{adjustwidth}{20pt}{20pt}
 

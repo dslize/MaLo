@@ -1,0 +1,170 @@
+\documentclass[11pt, a4paper]{article}
+
+\usepackage{graphicx}
+\usepackage{forest}
+\usepackage{proof}
+\usepackage[utf8]{inputenc}
+\usepackage{fancyhdr}
+\usepackage{changepage}
+\usepackage[onehalfspacing]{setspace}
+\usepackage{ragged2e}
+\usepackage{ amssymb, amsmath, amsthm, dsfont, marvosym }
+\usepackage[width = 18cm, top = 2.5cm, bottom = 3cm]{geometry}
+\usepackage{extarrows}
+\usepackage{stmaryrd}
+\usepackage{enumitem}
+% ---------
+
+\newcommand{\myTitleString} {}
+\newcommand{\myAuthorString} {}
+\newcommand{\mySubTitleString} {}
+\newcommand{\myDateString} {}
+
+\newcommand{\myTitle}[1] {\renewcommand {\myTitleString}{#1}}
+\newcommand{\mySubTitle}[1] {\renewcommand {\mySubTitleString}{#1}}
+\newcommand{\myAuthor}[1] {\renewcommand{\myAuthorString}		{#1}}
+\newcommand{\myDate}[1] {\renewcommand{\myDateString}{#1}}
+
+\newcommand{\makeMyTitle}
+{
+\pagestyle{fancy}
+\fancyhead[L]
+{
+\begin{tabular}{l}
+\myTitleString
+\\ \mySubTitleString 
+\\ \myDateString
+\end{tabular}
+} 			
+\fancyhead[C]{}
+\fancyhead[R]{\myAuthorString}
+\fancyfoot[C]{\thepage}
+}
+
+\setlength{\headheight}{45pt}
+
+\newcommand{\p}{7}
+\newcommand{\pp}{11}
+\newcommand{\ppp}{8}
+\newcommand{\pppp}{} 
+
+\newcommand{\defgl}{\mathrel{=\!\!\mathop:}}
+\newcommand{\defgr}{\mathrel{\mathop:\!\!=}}
+
+\newcommand{\struc}[1]{\ensuremath{\mathfrak{#1}}}
+
+\makeatletter
+\renewcommand*\env@matrix[1][*\c@MaxMatrixCols c]{%
+  \hskip -\arraycolsep
+  \let\@ifnextchar\new@ifnextchar
+  \array{#1}}
+\makeatother
+% ---------
+%\setlength{\parindent}{0pt}
+\begin{document}
+
+\myTitle{\textsc{Mathematische Logik}}
+\mySubTitle{Übung 9}
+\myDate{26. Juni 2017}
+\myAuthor
+{
+\begin{tabular}{l l}
+346532, &Daniel Boschmann\\
+348776, &Anton Beliankou	\\
+356092, &Daniel Schleiz
+\end{tabular}
+}
+\makeMyTitle
+
+\begin{tabular}{|c|c|c|c|}\hline
+   2 & 3 & 4 &$\sum$\\\hline
+  	 \qquad/\p & \qquad/\pp & \qquad/\ppp &\qquad/26\\\hline
+ \end{tabular}
+\hspace*{20pt} {\huge Gruppe \textbf{G}}
+\vspace*{30pt}
+
+
+\section*{Aufgabe 2 (Punkte:\qquad/\p)}
+\textbf{(a)}
+\begin{adjustwidth}{20pt}{20pt}
+	\struc{A} und \struc{B} sind elementar äquivalent, da die Duplikatorin in $G(\struc{A},\struc{B})$ stets eine Gewinnstrategie hat. Da in beiden Strukturen unendlich viele Elemente $x$
+	existieren, die in der Relation $P$ liegen. (Und ebenso welche, die nicht in der Relation liegen.) Als Gewinnstrategie könnte die Duplikatorin zum Beispiel für eine nicht-negative Zahl aus
+	der ersten Struktur (vom Herausforderer gewählt) aus der zweiten Struktur Zahlen in der Reihenfolge -1,-2,-3,... geben (falls eine solche Zahl in einem anderen Schritt vom erausforderer bereits gewählt wurde, wird
+	einfach die nächste Zahl der Folge gewählt), bei einer negativen Zahl eben positive Zahlen in der zweiten Struktur in der Folge 1,2,3,... (Analoge Strategie, falls der Herausforderer aus
+	der zweiten Struktur wählt, also genau andersrum.) Somit sind die Strukturen elementar äquivalent.
+	
+\end{adjustwidth}
+\textbf{(b)}
+\begin{adjustwidth}{20pt}{20pt}
+	Es gilt $\struc{A} \equiv_1 \struc{B}$, aber $\struc{A} \not\equiv_2 \struc{B}$. Trennende Formel: $\psi = \exists x \exists y(x \neq y \wedge Px \wedge Qx \wedge Py \wedge Qy)$, es ist
+	qr($\psi$)=2. Die Formel sagt also aus, dass es mindestens zwei Elemente gibt, welche in beiden Relationen liegen. Dies gilt nicht für die zweite Struktur, da die einzige Zweierpotenz,
+	welche auch Dreierpotenz ist, die 1 ist. Andererseits sind alle vielfachen von 6 auch Vielfache von 2 und 3, davon gibt es also beliebig viele.\\
+	Gewinnstrategie für den Herausforderer im Spiel $G_2(\struc{A},\struc{B})$:
+	\begin{enumerate}
+	\item H wählt $6\in\mathbb{Z}$ aus \struc{A}
+	\item D muss mit 1 aus \struc{B} antworten, da sonst kein lokaler Isomorphismus gegeben wäre, nur 1 in beiden Relationen liegt
+	\item Nun wählt H 12, ist erneut in beiden Relationen, darauf kann die Duplikatorin nicht antworten, H gewinnt.
+	\end{enumerate}
+	In $G_1(\struc{A},\struc{B})$ hat die Duplikatorin eine Gewinnstrategie, führe eine Fallunterscheidung durch:
+	\begin{itemize}
+	\item H wählt aus \struc{A}, $x \in \mathbb{Z}$
+		\begin{itemize}
+		\item 
+		\end{itemize}
+	\item H wählt aus \struc{B}, $x \in \mathbb{R}$
+	\end{itemize}
+\end{adjustwidth}
+\textbf{(c)}
+\begin{adjustwidth}{20pt}{20pt}
+	Es gilt $\struc{A} \equiv_2 \struc{B}$, aber $\struc{A} \not\equiv_3 \struc{B}$. Trennende Formel $\psi=\exists x \exists y \exists z(x \neq y \wedge 1z \wedge Mxyz)$, qr($\psi$)=3.
+	Die Formel ist trennend, da in $\mathbb{Z}$ aus $a\cdot b=1$ folgt, dass $a=b=1$, in $\mathbb{Q}$ jedoch nur $b = \frac{1}{a}$, und offensichtlich $a \neq \frac{1}{a}$ falls a nicht die 1
+	ist.
+\end{adjustwidth}
+
+
+\section*{Aufgabe 3 (Punkte:\qquad/\pp)}
+\textbf{(a)}
+\begin{adjustwidth}{20pt}{20pt}
+\textbf{(i)}
+\begin{adjustwidth}{2em}{0em}\vspace{-\baselineskip}
+	Die Theorie einer Struktur ist per Definition vollständig, da diese alle Sätze enthält, welche die Struktur erfüllt. Also enthält die Theorie entweder $\psi$ oder $\neg\psi$ für alle
+	für alle FO-Sätze, da die Struktur die Formel entweder erfüllt oder nicht.
+\end{adjustwidth}
+\textbf{(ii)}
+\begin{adjustwidth}{2em}{0em}\vspace{-\baselineskip}
+	Sei \struc{A} eine zu $(\mathbb{N},\cdot)$ elementar äquivalente Struktur. Dann ist per Definition von elementarer Äquivalenz $\text{Th}(\struc{A})=\text{Th}((\mathbb{N},\cdot))$. Die
+	Theorie der Klasse aller zu $(\mathbb{N},\cdot)$ elementar äquivalenten Strukturen ist der Schnitt der Theorien dieser Strukturen, da diese jedoch alle elementar äquivalent sind ist
+	die Theorie der Klasse aller zu $(\mathbb{N},\cdot)$ elementar äquivalenten Strukturen gleich $\text{Th}((\mathbb{N},\cdot))$. Da, wie bereits in (i) festgestellt, die Theorie einer
+	Struktur vollständig ist, ist auch diese Theorie vollständig.
+\end{adjustwidth}
+\textbf{(iii)}
+\begin{adjustwidth}{2em}{0em}\vspace{-\baselineskip}
+	Die Theorie ist nicht vollständig, betrachte $\struc{B}(aaaaa)$ und $\struc{B}(baaab)$ und den Satz $\psi = \forall x(P_ax)$. Es gilt $\struc{B}(aaaaa) \models \psi$, aber 
+	$\struc{B}(baaab) \not\models \psi$, da im Wort $baaab$ nicht jedes Symbol ein $a$ ist. Es ist also $\psi \in \text{Th}(\struc{B}(aaaaa))$, aber $\neg\psi \in \text{Th}(\struc{B}(aaaaa))$.
+	Die Theorie der angegebenen Klasse beinhaltet den Schnitt aller Theorien seiner Strukturen, also ist weder $\psi$ noch $\neg\psi$ in der Theorie, also nicht vollständig.
+\end{adjustwidth}
+\textbf{(iv)}
+\begin{adjustwidth}{2em}{0em}\vspace{-\baselineskip}
+Da die Graphen keine Kanten haben, ist die Kantenrelation der Graphen leer. Ein Isomorphismus zwischen den Graphen ist also stets verträglich mit der Kantenrelation. Nun existieren beliebig viele
+Bijektionen zwischen überabzählbaren Mengen, somit existieren auch Isomorphismen zwischen den Graphen mit überabzählbarer Knotenmenge. Da also alle Graphen dieser Klasse isomorph sind, folgt
+mit dem Isomorphielemma direkt, dass diese auch elementar äquivalent sind. Somit entspricht die theorie dieser Klasse gerade der Theorie eines beliebigen Graphen (definiert durch die
+entsprechende Struktur). Da die Theorie einer Struktur vollständig ist, ist auch die Theorie in der Aufgabenstellung vollständig. 
+\end{adjustwidth}
+\end{adjustwidth}
+\textbf{(b)}
+\begin{adjustwidth}{20pt}{20pt}
+	
+\end{adjustwidth}
+
+\section*{Aufgabe 4 (Punkte:\qquad/\ppp)}
+\textbf{(a)}
+\begin{adjustwidth}{20pt}{20pt}
+	
+\end{adjustwidth}
+\textbf{(b)}
+\begin{adjustwidth}{20pt}{20pt}
+	
+\end{adjustwidth}
+
+
+\end{document}

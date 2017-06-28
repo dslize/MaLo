@@ -109,9 +109,18 @@
 	\begin{itemize}
 	\item H wählt aus \struc{A}, $x \in \mathbb{Z}$
 		\begin{itemize}
-		\item 
+		\item Es gilt $\neg Px \wedge \neg Qx$: Wähle 0
+		\item Es gilt $\neg Px \wedge Qx$: Wähle 3
+		\item Es gilt $ Px \wedge \neg Qx$: Wähle 2
+		\item Es gilt $ Px \wedge  Qx$: Wähle 1
 		\end{itemize}
 	\item H wählt aus \struc{B}, $x \in \mathbb{R}$
+	\begin{itemize}
+		\item Es gilt $\neg Px \wedge \neg Qx$: Wähle 7
+		\item Es gilt $\neg Px \wedge Qx$: Wähle 3
+		\item Es gilt $ Px \wedge \neg Qx$: Wähle 2
+		\item Es gilt $ Px \wedge  Qx$: Wähle 6
+	\end{itemize}
 	\end{itemize}
 \end{adjustwidth}
 \textbf{(c)}
@@ -119,6 +128,13 @@
 	Es gilt $\struc{A} \equiv_2 \struc{B}$, aber $\struc{A} \not\equiv_3 \struc{B}$. Trennende Formel $\psi=\exists x \exists y \exists z(x \neq y \wedge 1z \wedge Mxyz)$, qr($\psi$)=3.
 	Die Formel ist trennend, da in $\mathbb{Z}$ aus $a\cdot b=1$ folgt, dass $a=b=1$, in $\mathbb{Q}$ jedoch nur $b = \frac{1}{a}$, und offensichtlich $a \neq \frac{1}{a}$ falls a nicht die 1
 	ist.
+Gewinnstrategie für den Herausforderer im Spiel $G_3(\struc{A},\struc{B})$: Herausforderer wählt 1 in \struc{A}, Duplikatorin muss mit 1 antworten, da sonst die einstellgie Relation
+zur 1 verletzt. Herausforderer wählt nun 2 in \struc{B}, Dupliaktorin wählt etwas beliebiges in \struc{A}. Herausforderer wählt $\frac{1}{2}$ in \struc{B}, Duplikatorin kann nicht
+antworten, da, wie eben begründet, keine zwei Elemente in \struc{A} existieren, diezusammen multipliziert 1 ergeben, es sei denn sie sind beide 1.\\
+In $G_2(\struc{A},\struc{B})$ besitzt die dupliaktorin eine Gewinnstrategie: Bemerke zunächst, dass weil nur 2 Züge gespielt werden, die gewählten Elemente nicht verträglich mit der
+Relation $M$ sein müssen, da diese dreistellig ist und somit für den lokalen Isomorphiosmus nicht relevant. Falls der Herausforderer die 1 zieht, so muss die Duplikatorin die 1 in der anderen
+Struktur wählen, da sonst die dazugehörige Relation verletzt wäre. Wählt der Herausforderer ein Element ungleich 1, so kann die Duplikatorin zu einem beliebigen Element ungleich 1 in der
+anderen Struktur ziehen.
 \end{adjustwidth}
 
 
@@ -153,14 +169,48 @@ entsprechende Struktur). Da die Theorie einer Struktur vollständig ist, ist auc
 \end{adjustwidth}
 \textbf{(b)}
 \begin{adjustwidth}{20pt}{20pt}
-	
+\textbf{(i)}
+\begin{adjustwidth}{2em}{0em}\vspace{-\baselineskip}
+
+\end{adjustwidth}
+\textbf{(ii)}
+\begin{adjustwidth}{2em}{0em}\vspace{-\baselineskip}
+Die Aussage, dass die Theorie der diskreten linearen Ordnungen ohne Endpunkte (DLOoE) vollständig ist, ist äquivalent zur Aussage, dass alle DLOoE (also alle ihre Modelle) elementar
+äquivalent sind. Seien $\struc{A}$ und $\struc{B}$ zwei beliebige DLOoE. Zeige, dass $\struc{A} \equiv \struc{B}$. Dies ist äquivalent zur Aussage, dass für ein beliebiges $m \in
+\mathbb{N}$ gilt, dass $\struc{A} \equiv_m \struc{B}$. Mit dem Satz von Ehrenfeucht-Fraissé reicht es zu zeigen, dass die Duplikatorin in $G_m(\struc{A},\struc{B})$ eine Gewinnstrategie
+besitzt.\\
+Da die Ordnungen keine Endpunkte besitzen, existiert für jedes Element ein größeres und ein kleineres Element. Da die Ordnung diskret ist, besitzt jedes Element ebenfalls einen 
+"eindeutigen" Nachfolger und Vorgänger. (Im Folgenden ist mit Nachfolger und Vorgänger stets der kleinste Nachfolger und größte Vorgänger gemeint.)\\
+Im ersten Zug wählt der Herausforderer ein Element $z$ aus einer der beiden Strukturen. Die Duplikatorin wähle ein beliebiges Element aus der anderen Struktur. Betrachte nun den i-ten
+Zug: Der Herausforderer wählt o.B.d.A ein Element $x$ aus der ersten Struktur (Die Argumentation ist für den Fall, dass aus der zweiten Struktur gewählt wird, analog). Es ergeben sich
+zwei Fälle:
+\begin{itemize}
+\item Sei für $n \leq m$ das gewählte $x$ der $n$-te Nachfolger bzw. Vorgänger für ein bereits in einem vorherigen Zug gewähltem $a_j$ in der ersten Struktur. (Mit "n-ter Nachfolger"
+bzw. Vorgänger ist gemeint, dass man n Mal den (eindeutigen) Nachfolger bzw. Vorgänger entlang geht, bis man beim gewählten $x$ ankommt.) Dann wähle die Duplikatorin den $n$-ten
+Nachfolger bzw. Vorgänger des zu $a_j$ korrespondierenden Elements $b_j$ in der anderen Struktur, welches im selben Zug gewählt  wurde. (Dies ist möglich, da keine Endpunkte.)
+\item Sei nun $x$ kein $n$-ter Nachfolger bzw. Vorgänger für ein $a_j$ (d.h. $x$ liegt von allen Elementen aus mindestens $m+1$ Nachfolger/Vorgänger entfernt). Bezeichne $a_{min}$ das bzgl. der linearen Ordnung kleinste Element der in vorherigen Zügen gewählten Elemente in der ersten Struktur, sei analog $a_{max}$ das Maximum der gewählten Elemente.
+Falls $x < a_{min}$ ist, so wählt die Duplikatorin den $(m+1)$-ten Vorgänger vom zu $a_{min}$ korrespondierenden Element $b_{min}$ in der anderen Struktur. Analog wählt die
+Duplikatorin, falls $x > a_{max}$ (Dies sind alle möglichen Fälle, sonst wäre $x$ Nachfolger/Vorgänger mit einer Anzahl von weniger als $m$ Schritten),  den $(m+1)$-ten Nachfolger vom zu
+$a_{max}$ korrespondierenden Element $b_{max}$ in der anderen Struktur.
+\end{itemize}
+Hierbei handelt es sich um eine Gewinnstrategie für die Dupliaktorin, denn: Die Idee ist, dass in die Duplikatorin in der anderen Struktur Elemente stets so wählt, dass die Distanz in Bezug auf
+Anzahl von Nachfolgern/Vorgängern respektiert werden soll. Dadurch bleibt einerseits die lineare Ordnung erhalten, andererseits kann die diskrete Eigenschaft so nicht vom Herausforderer
+zerstört werden. Die Distanzen können aber nur im ersten Fall direkt respektiert werden, da die Distanz insbesondere endlich sit und sich so direkt ind er anderen Struktur umsetzen lässt.
+Da aber die Universen der Strukturen überabzählbar sein könnten (?), kann man eventuell nicht direkt bestimmen, der wievielte Nachfolger das gewählte Element in Bezug auf die bereits
+gewählten Elemente ist. In dem Fall wählt man einfach einen Nachfolger/Vorgänger, welcher weit genug entfernt ist, sodass der Herausforderer nicht in $m$ Zügen die Elemente immer
+enger zwischen zwei vorher ausgewählten Elementen wählen kann, sodass die diskrete Eigenschaft der Ordnung kaputt geht.
+\end{adjustwidth}
 \end{adjustwidth}
 
 \section*{Aufgabe 4 (Punkte:\qquad/\ppp)}
 \textbf{(a)}
 \begin{adjustwidth}{20pt}{20pt}
-$\mathcal{K}=\{ \mathfrak{A} \text{ mit } \mathfrak{A} \models \Phi \}$, da $\mathcal{K}$ axiomatisiert durch $\Phi$.\\
- Damit, wenn $\mathcal{B} \notin \mathcal{K}$, muss ein $\varphi \in \Phi$ existieren mit $\mathcal{B} \not \models \varphi$ (oder auch $\mathcal{B} \models \neg \varphi$). Setzt man $m=qr(\varphi)$, so muss $\mathcal{A}_m \models \neg \varphi$ wegen $\mathcal{B} \equiv_m \mathcal{A}_m$  gelten. Widerspruch, da $\mathcal{A}_m \in \mathcal{K} \lightning$ 
+	Zeige die Aussage durch Kontraposition. Es gelte also $\struc{B} \notin \mathcal{K}$. Es ist also $\struc{B} \notin \text{Mod}(\Phi)$ und deswegen $\struc{B} \not\models \Phi$.
+	Es existiert also ein Satz $\varphi \in \Phi$, sodass $\struc{B} \not\models \varphi$.\\ %Sei außerdem $m \defgr \text{qr}(\varphi)$.
+	Es gilt nun zu zeigen, dass ein $m \in \mathbb{N}$ existiert, sodass für alle $\struc{A} \in \mathcal{K}$ gilt,  dass $\struc{B} \not\equiv_m \struc{A}$. Wähle
+	$m \defgr \text{qr}(\varphi)$ und sei $\struc{A} \in \mathcal{K}$ beliebig. Da $\varphi \in \Phi$, folgt, dass $\struc{A} \models \varphi$, da sonst $\struc{A}$ nicht in der
+	Modellklasse von $\Phi$ liegen würde. Da nun $\struc{A} \models \varphi$ und $\struc{B} \not\models \varphi$ folgt, dass $\struc{B} \not\equiv_m \struc{A}$. Da $\struc{A}$
+	beliebig gewählt war, gilt die zu zeigende Aussage.
 \end{adjustwidth}
 \textbf{(b)}
 \begin{adjustwidth}{20pt}{20pt}
